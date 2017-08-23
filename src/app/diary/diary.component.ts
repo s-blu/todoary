@@ -10,6 +10,7 @@ export class DiaryComponent implements OnInit {
   entries;
 
   constructor() {
+    // todo save and get entries from database
     this.entries = [];
   }
 

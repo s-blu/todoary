@@ -1,9 +1,12 @@
 <md-card class="diary-entry">
   <div class="todos">
+    <!--todo create todo component and use ngFor here, enable to delete and check todos-->
+    <!--todo create a create new todo button-->
     {{entry.todos}}
   </div>
   <div class="notes">
     {{entry.notes}}
   </div>
+  <!--todo show time too-->
   {{entry.meta.timestamp | date}}
 </md-card>
