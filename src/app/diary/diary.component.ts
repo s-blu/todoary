@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MdButtonModule } from '@angular/material';
 import { Entry } from '../entry';
 
 @Component({
@@ -16,7 +15,7 @@ export class DiaryComponent implements OnInit {
 
   ngOnInit() {
     const demoEntry = new Entry();
-    demoEntry.notes = "I am a Demo Entry!";
+    demoEntry.notes = 'I am a Demo Entry!';
     this.entries.push(demoEntry)// todo generate demo entry on init
   }
 

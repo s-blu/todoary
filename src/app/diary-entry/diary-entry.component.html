@@ -1,3 +1,9 @@
-<p>
-  diary-entry works!
-</p>
+<md-card class="diary-entry">
+  <div class="todos">
+    {{entry.todos}}
+  </div>
+  <div class="notes">
+    {{entry.notes}}
+  </div>
+  {{entry.meta.timestamp | date}}
+</md-card>

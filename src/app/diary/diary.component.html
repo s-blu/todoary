@@ -1,4 +1,7 @@
 <div class="diary">
   <!--todo: repeat for entries, new to old-->
-  <button md-button (click)="addEntry()"><i class="material-icons">add</i></button>
+  <div class="entries" *ngFor="let entry of entries">
+    <app-diary-entry [entry]="entry"></app-diary-entry>
+  </div>
+  <button md-fab (click)="addEntry()"><i class="material-icons">add</i></button>
 </div>
