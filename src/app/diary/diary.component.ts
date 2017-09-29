@@ -21,6 +21,8 @@ export class DiaryComponent implements OnInit {
   }
 
   addEntry() {
+    //todo create editable entry here
+
     this.entries.push(new Entry());
   }
 
