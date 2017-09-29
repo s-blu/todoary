@@ -1,14 +1,14 @@
-import { TodoaryPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('todoary App', () => {
-  let page: TodoaryPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new TodoaryPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('Welcome to ta!');
   });
 });

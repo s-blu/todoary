@@ -1,7 +1,7 @@
 <div class="diary">
   <!--todo: repeat for entries, new to old-->
   <div class="entries" *ngFor="let entry of entries">
-    <app-diary-entry [entry]="entry"></app-diary-entry>
+    <ta-diary-entry [entry]="entry"></ta-diary-entry>
   </div>
   <!--todo create here an editable entry that needs to be saved before adding it as is-->
   <button md-fab (click)="addEntry()"><i class="material-icons">add</i></button>

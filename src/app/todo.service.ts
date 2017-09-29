@@ -6,7 +6,7 @@ export class TodoService {
   openTodos;
 
   constructor() {
-    this.openTodos = []
+    this.openTodos = [];
   }
 
 }

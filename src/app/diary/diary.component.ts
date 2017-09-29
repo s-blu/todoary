@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Entry } from '../entry';
 
 @Component({
-  selector: 'app-diary',
+  selector: 'ta-diary',
   templateUrl: './diary.component.html',
-  styleUrls: ['./diary.component.css']
+  styleUrls: ['./diary.component.scss']
 })
 export class DiaryComponent implements OnInit {
   entries;

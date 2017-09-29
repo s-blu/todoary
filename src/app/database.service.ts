@@ -19,7 +19,7 @@ export class DatabaseService {
   }
 
   saveDocument(name, data) {
-
+    //TODO save newly created entries
   }
 
 }
