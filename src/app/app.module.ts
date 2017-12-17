@@ -4,15 +4,15 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DiaryComponent } from './diary/diary.component';
 import { DiaryEntryComponent } from './diary-entry/diary-entry.component';
-import { NewDiaryEntryComponent } from './new-diary-entry/new-diary-entry.component';
 import {TaCustomMaterialModule} from './ta-custom-material/ta-custom-material.module';
+import { CreateEntryComponent } from './create-entry/create-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryComponent,
     DiaryEntryComponent,
-    NewDiaryEntryComponent
+    CreateEntryComponent
   ],
   imports: [
     BrowserModule,

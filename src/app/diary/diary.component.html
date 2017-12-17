@@ -1,12 +1,15 @@
 <mat-toolbar class="diary-header">
   <span>Todoary</span>
   <span class="space"></span>
-  <mat-icon (click)="addEntry()" class="toolbar-button">add</mat-icon>
+  <mat-icon (click)="showCreateNew = true" class="toolbar-button">add</mat-icon>
 </mat-toolbar>
 
+<ta-create-entry (submitRequest)="addEntry($event)"></ta-create-entry>
+
 <div class="diary">
-  <!--todo: repeat for entries, new to old-->
   <div class="entries" *ngFor="let entry of entries">
     <ta-diary-entry [entry]="entry"></ta-diary-entry>
   </div>
 </div>
+
+
