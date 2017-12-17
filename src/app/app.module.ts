@@ -8,13 +8,15 @@ import {TaCustomMaterialModule} from './ta-custom-material/ta-custom-material.mo
 import { CreateEntryComponent } from './create-entry/create-entry.component';
 import {TodoService} from "./todo.service";
 import {TodoEntryService} from "./todo-entry.service";
+import { EntryHeadlineComponent } from './entry-headline/entry-headline.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryComponent,
     DiaryEntryComponent,
-    CreateEntryComponent
+    CreateEntryComponent,
+    EntryHeadlineComponent
   ],
   imports: [
     BrowserModule,

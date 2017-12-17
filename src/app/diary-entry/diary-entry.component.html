@@ -1,13 +1,13 @@
 <div class="diary-entry">
   <div class="container">
-    <div class="diary-entry-header">ToDo's<span class="border"></span></div>
+    <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
     <div class="diary-entry-content todos">
       <!--todo create todo component and use ngFor here, enable to delete and check todos-->
       <!--todo create a create new todo button-->
       {{entry.todos}}
     </div>
 
-    <div class="diary-entry-header">Notes<span class="border"></span></div>
+    <ta-entry-headline [title]='"Notes"'></ta-entry-headline>
     <div class="diary-entry-content notes">
       {{entry.notes}}
     </div>

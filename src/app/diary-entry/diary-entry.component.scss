@@ -27,16 +27,3 @@
 .diary-entry-content {
   padding: 1em;
 }
-
-.diary-entry-header {
-  font: $font_size_heading $font_face_highlight;
-  color: $color_headlines;
-  padding-top: 0.5em;
-
-  .border {
-    display: flex;
-    margin-left: 50px;
-    margin-right: 10px;
-    border-bottom: 1px solid rgba($color_headlines, 0.5);
-  }
-}
