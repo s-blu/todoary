@@ -1,22 +1,12 @@
+<mat-toolbar>
+  <span>Todoary</span>
+  <span class="space"></span>
+  <mat-icon (click)="addEntry()" class="toolbar-button">add</mat-icon>
+</mat-toolbar>
+
 <div class="diary">
   <!--todo: repeat for entries, new to old-->
   <div class="entries" *ngFor="let entry of entries">
     <ta-diary-entry [entry]="entry"></ta-diary-entry>
   </div>
-  <!--todo create here an editable entry that needs to be saved before adding it as is-->
-  <button md-fab (click)="addEntry()"><i class="material-icons">add</i></button>
-
-  <md-card class="diary-create">
-    <form>
-      <!--todo show open todos here-->
-      <!--todo create form to add new todos-->
-      <!--todo make todos checkable and deletable-->
-      <md-form-field>
-        <textarea mdInput placeholder="Notes"></textarea>
-      </md-form-field>
-      <div>
-
-      </div>
-    </form>
-  </md-card>
 </div>

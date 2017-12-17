@@ -15,9 +15,10 @@ export class DiaryComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('init diary...');
     const demoEntry = new Entry();
     demoEntry.notes = 'I am a Demo Entry!';
-    this.entries.push(demoEntry)// todo generate demo entry on init
+    this.entries.push(demoEntry); // todo generate demo entry on init
   }
 
   addEntry() {
