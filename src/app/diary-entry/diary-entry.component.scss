@@ -29,12 +29,14 @@
 }
 
 .diary-entry-header {
-  font: 24px $font_face_highlight;
+  font: $font_size_heading $font_face_highlight;
   color: $color_headlines;
   padding-top: 0.5em;
 
   .border {
     display: flex;
-    border-bottom: 1px solid $color_headlines;
+    margin-left: 50px;
+    margin-right: 10px;
+    border-bottom: 1px solid rgba($color_headlines, 0.5);
   }
 }

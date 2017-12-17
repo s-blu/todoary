@@ -5,8 +5,15 @@ import { TodoEntryService } from './todo-entry.service';
 export class TodoService {
   openTodos;
 
-  constructor() {
-    this.openTodos = [];
+  constructor(private todoEntryService: TodoEntryService) {
+    this.openTodos = [
+      this.todoEntryService.createNewTodo('erstes todo'),
+      this.todoEntryService.createNewTodo('noch ein todo'),
+      this.todoEntryService.createNewTodo('und das letzte todo')
+    ];
   }
 
+  getTodos() {
+    return this.openTodos;
+  }
 }

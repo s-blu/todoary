@@ -1,10 +1,11 @@
 <mat-toolbar class="diary-header">
   <span>Todoary</span>
   <span class="space"></span>
-  <mat-icon (click)="showCreateNew = true" class="toolbar-button">add</mat-icon>
+  <mat-icon (click)="showCreateNewEntry = true" class="toolbar-button">add</mat-icon> <!-- fixme call fn here -->
 </mat-toolbar>
 
-<ta-create-entry (submitRequest)="addEntry($event)"></ta-create-entry>
+
+<ta-create-entry (ngClass)="{hidden: !showCreateNewEntry}" (onSubmit)="addEntry($event)"></ta-create-entry>
 
 <div class="diary">
   <div class="entries" *ngFor="let entry of entries">

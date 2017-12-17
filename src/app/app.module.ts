@@ -6,6 +6,8 @@ import { DiaryComponent } from './diary/diary.component';
 import { DiaryEntryComponent } from './diary-entry/diary-entry.component';
 import {TaCustomMaterialModule} from './ta-custom-material/ta-custom-material.module';
 import { CreateEntryComponent } from './create-entry/create-entry.component';
+import {TodoService} from "./todo.service";
+import {TodoEntryService} from "./todo-entry.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { CreateEntryComponent } from './create-entry/create-entry.component';
     BrowserModule,
     TaCustomMaterialModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'de' } ],
+  providers: [ { provide: LOCALE_ID, useValue: 'de' }, TodoService, TodoEntryService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

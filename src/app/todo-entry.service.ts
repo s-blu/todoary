@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TodoEntryService {
-  status;
-  text;
 
-  constructor() {
-    this.status = status.TODO;
-    this.text = '';
+  createNewTodo(text) {
+    const newTodo = new TodoEntry(text);
+    return newTodo;
   }
 
   setDone(todo) {
@@ -23,4 +21,14 @@ enum status {
   TODO,
   DONE,
   DELETED = -1
+}
+
+class TodoEntry {
+  status;
+  text;
+
+  constructor(text) {
+    this.status = status.TODO;
+    this.text = text || '';
+  }
 }
