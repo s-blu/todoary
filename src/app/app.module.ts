@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DiaryComponent } from './diary/diary.component';
@@ -18,7 +18,7 @@ import {TaCustomMaterialModule} from './ta-custom-material/ta-custom-material.mo
     BrowserModule,
     TaCustomMaterialModule
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'de' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

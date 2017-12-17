@@ -1,6 +1,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'variables.scss';
 
 body {
-  background-color: #eaeaea;
+  background-color: $color_background;
   font: 500 16px Roboto,"Helvetica Neue",sans-serif
 }

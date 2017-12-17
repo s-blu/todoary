@@ -1,3 +1,12 @@
+@import '../../variables';
+
+.diary-header {
+  border-radius: $border_radius;
+  margin-bottom: 0.5em;
+
+  background-color: $color_background;
+}
+
 .space {
   flex: 1 1 auto;
 }
@@ -6,3 +15,4 @@
     cursor: pointer;
   }
 }
+

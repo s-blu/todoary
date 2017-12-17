@@ -1,17 +1,17 @@
 <div class="diary-entry">
-  <div class="content">
-    <div class="diary-entry-header"><span>ToDo's</span><span class="border"></span></div>
-    <div class="todos">
+  <div class="container">
+    <div class="diary-entry-header">ToDo's<span class="border"></span></div>
+    <div class="diary-entry-content todos">
       <!--todo create todo component and use ngFor here, enable to delete and check todos-->
       <!--todo create a create new todo button-->
       {{entry.todos}}
     </div>
 
     <div class="diary-entry-header">Notes<span class="border"></span></div>
-    <div class="notes">
+    <div class="diary-entry-content notes">
       {{entry.notes}}
     </div>
   </div>
   <!--todo show time too-->
-  <span class="timestamp">{{entry.meta.timestamp | date}}</span>
+  <span class="timestamp">{{entry.meta.timestamp | date:'short'}}</span>
 </div>
