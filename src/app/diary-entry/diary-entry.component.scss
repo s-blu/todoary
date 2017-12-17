@@ -1,0 +1,36 @@
+$color_header: #9d9d9d;
+$color_info: #cacaca;
+
+.diary-entry {
+  background-color: white;
+
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 0.8em;
+
+  display: grid;
+  grid-template-rows: 1fr 50px;
+
+  .timestamp {
+    grid-row: 2;
+    justify-self: end;
+    align-self: end;
+
+    color: $color_info;
+  }
+}
+
+.diary-entry .content {
+  grid-row: 1;
+}
+
+.diary-entry-header {
+  font: 28px 'Alegreya', serif;
+  color: $color_header;
+  padding-top: 0.5em;
+
+  .border {
+    display: flex;
+    border-bottom: 1px solid $color_header;
+  }
+}

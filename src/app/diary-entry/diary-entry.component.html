@@ -1,12 +1,17 @@
-<md-card class="diary-entry">
-  <div class="todos">
-    <!--todo create todo component and use ngFor here, enable to delete and check todos-->
-    <!--todo create a create new todo button-->
-    {{entry.todos}}
-  </div>
-  <div class="notes">
-    {{entry.notes}}
+<div class="diary-entry">
+  <div class="content">
+    <div class="diary-entry-header"><span>ToDo's</span><span class="border"></span></div>
+    <div class="todos">
+      <!--todo create todo component and use ngFor here, enable to delete and check todos-->
+      <!--todo create a create new todo button-->
+      {{entry.todos}}
+    </div>
+
+    <div class="diary-entry-header">Notes<span class="border"></span></div>
+    <div class="notes">
+      {{entry.notes}}
+    </div>
   </div>
   <!--todo show time too-->
-  {{entry.meta.timestamp | date}}
-</md-card>
+  <span class="timestamp">{{entry.meta.timestamp | date}}</span>
+</div>
