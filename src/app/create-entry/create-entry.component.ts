@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Entry} from "../entry";
-import {TaCustomMaterialModule} from "../ta-custom-material/ta-custom-material.module";
-import {TodoService} from "../todo.service";
+import {Entry} from '../entry';
+import {TaCustomMaterialModule} from '../ta-custom-material/ta-custom-material.module';
+import {TodoService} from '../todo.service';
 
 @Component({
   selector: 'ta-create-entry',
@@ -15,13 +15,12 @@ export class CreateEntryComponent implements OnInit {
   todos;
 
   submit() {
-    //todo clear form
-    this.newEntry.notes = 'i was just created!';
+    // todo clear form
     this.onSubmit.emit(this.newEntry);
   }
 
   cancel() {
-    //todo clear form
+    // todo clear form & create new empty Entry?! whats about timestamp then
   }
 
   constructor(private todoService: TodoService) {

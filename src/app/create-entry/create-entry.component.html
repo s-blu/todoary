@@ -1,6 +1,4 @@
 <div class="createEntry">
-
-
   <form name="createEntryForm">
     <div class="header">
       Create a new Entry
@@ -9,16 +7,16 @@
 
     <div class="content">
       <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
-      <div class="diary-entry-content todos">
-        <!--todo create todo component and use ngFor here, enable to delete and check todos-->
+      <div class="todos">
         <div class="entries" *ngFor="let todo of todos">
-          [{{todo.status}}] - {{todo.text}}
+          [{{todo.status}}] - {{todo.text}} <!--todo create todo component,  enable to delete and check todo -->
         </div>
+        <!-- todo make it possible to add todos -->
       </div>
 
       <ta-entry-headline [title]='"Notes"'></ta-entry-headline>
-      <mat-form-field class="full-width">
-        <textarea matInput #notes cols="5"></textarea>
+      <mat-form-field class="full-width notes">
+        <textarea matInput name="notes" [(ngModel)]="newEntry.notes" #notes cols="5"></textarea>
         <mat-hint align="end">{{notes.value.length}}</mat-hint>
       </mat-form-field>
     </div>

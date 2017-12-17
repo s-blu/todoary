@@ -3,12 +3,12 @@ export class Entry {
   todos;
   notes;
 
-  constructor() {
+  constructor(notes = '', todos = []) {
     this.meta = {
       timestamp: Date.now()
     };
-    this.todos = [];
-    this.notes = '';
+    this.todos = todos;
+    this.notes = notes;
   }
 
 }

@@ -8,6 +8,7 @@ import { Entry } from '../entry';
 })
 export class DiaryComponent implements OnInit {
   entries;
+  showCreateNewEntry = false;
 
   constructor() {
     // todo save and get entries from database
@@ -21,10 +22,11 @@ export class DiaryComponent implements OnInit {
     this.entries.push(demoEntry); // todo generate demo entry on init
   }
 
-  addEntry() {
-    //todo create editable entry here
-
-    this.entries.push(new Entry());
+  addEntry(entry) {
+    // todo create editable entry here
+    console.log('adding new entry!');
+    this.showCreateNewEntry = false;
+    this.entries.unshift(entry);
   }
 
 }

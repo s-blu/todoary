@@ -5,7 +5,7 @@
 </mat-toolbar>
 
 
-<ta-create-entry (ngClass)="{hidden: !showCreateNewEntry}" (onSubmit)="addEntry($event)"></ta-create-entry>
+<ta-create-entry *ngIf="showCreateNewEntry" (onSubmit)="addEntry($event)"></ta-create-entry>
 
 <div class="diary">
   <div class="entries" *ngFor="let entry of entries">
