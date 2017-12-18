@@ -39,7 +39,7 @@ export class DiaryComponent implements OnInit {
     console.log('adding new entry...');
     this.showCreateNewEntry = false;
     this.entries.unshift(entry);
-    this.databaseService.updateEntries(this.entries);
+    this.databaseService.updateEntries(this.entries).then((entries) => this.entries = entries);
   }
 
 }

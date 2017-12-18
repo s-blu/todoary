@@ -12,13 +12,13 @@ export class DatabaseService {
   }
 
   getDatabase() {
-    return new Promise(() => {
+    return new Promise((resolve, reject) => {
       if (!this.db) {
         console.log('No database found. Trying to fetch it ...');
-        this.createDatabase().then(() => this.db); // todo should you really create in a get?
+        this.createDatabase().then(() => resolve(this.db)); // todo should you really create in a get?
       } else {
         console.log('giving database instance ....');
-        return this.db;
+        resolve(this.db);
       }
     });
   }
@@ -62,6 +62,7 @@ export class DatabaseService {
         return db.put(doc);
       }).then(() => {
         console.log('successfully updated entries in database!');
+        return this.getEntries();
       }).catch((error) => {
         console.log('could not execute updateEntries:');
         console.log(error);
@@ -95,6 +96,7 @@ export class DatabaseService {
       })
       .then(() => {
         console.log('successfully updated open todos in database!');
+        return this.getOpenTodos();
       })
       .catch((error) => {
         console.log('could not execute updateOpenTodos:');
