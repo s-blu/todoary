@@ -10,32 +10,36 @@ import {DatabaseService} from '../database.service';
 })
 export class DiaryComponent implements OnInit {
   entries;
-  database;
+  databaseService;
   showCreateNewEntry = false;
 
   constructor(private db: DatabaseService) {
     this.entries = [];
-    this.database = db;
-
-    db.getEntries().then((doc) => {
-      if (doc.entries) {
-        this.entries = doc.entries;
-      }
-    });
+    this.databaseService = db;
   }
 
   ngOnInit() {
     console.log('init diary...');
-    const demoEntry = new Entry();
-    demoEntry.notes = 'I am a Demo Entry!';
-    this.entries.push(demoEntry); // todo generate demo entry on init
+    this.databaseService.getEntries().then((entries) => {
+      console.log('entries length is ' + entries.length);
+      if (entries.length === 0) {
+        const demoEntry = new Entry();
+        demoEntry.notes = 'I am a Demo Entry!';
+        this.addEntry(demoEntry);
+      }
+      console.log('setting entries for display...');
+      this.entries = entries;
+    }).catch(err => {
+      console.log('could not get entries for displaying:');
+      console.log(err);
+    });
   }
 
   addEntry(entry) {
-    console.log('adding new entry!');
+    console.log('adding new entry...');
     this.showCreateNewEntry = false;
     this.entries.unshift(entry);
-    this.database.updateEntries(this.entries);
+    this.databaseService.updateEntries(this.entries);
   }
 
 }
