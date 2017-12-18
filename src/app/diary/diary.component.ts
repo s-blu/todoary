@@ -1,18 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../entry';
+import {DatabaseService} from '../database.service';
 
 @Component({
   selector: 'ta-diary',
   templateUrl: './diary.component.html',
-  styleUrls: ['./diary.component.scss']
+  styleUrls: ['./diary.component.scss'],
+  providers: [DatabaseService]
 })
 export class DiaryComponent implements OnInit {
   entries;
+  database;
   showCreateNewEntry = false;
 
-  constructor() {
-    // todo save and get entries from database
+  constructor(private db: DatabaseService) {
     this.entries = [];
+    this.database = db;
+
+    db.getEntries().then((doc) => {
+      if (doc.entries) {
+        this.entries = doc.entries;
+      }
+    });
   }
 
   ngOnInit() {
@@ -23,10 +32,10 @@ export class DiaryComponent implements OnInit {
   }
 
   addEntry(entry) {
-    // todo create editable entry here
     console.log('adding new entry!');
     this.showCreateNewEntry = false;
     this.entries.unshift(entry);
+    this.database.updateEntries(this.entries);
   }
 
 }
