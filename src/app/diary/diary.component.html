@@ -1,9 +1,10 @@
-<mat-toolbar class="diary-header">
+<div class="diary-header">
   <span>Todoary</span>
-  <span class="space"></span>
-  <ta-export-button class="toolbar-button"></ta-export-button>
-  <mat-icon (click)="showCreateEntry()" class="toolbar-button">add</mat-icon>
-</mat-toolbar>
+  <div class="toolbar-buttons">
+    <ta-export-button class="button"></ta-export-button>
+    <mat-icon (click)="showCreateEntry()" class="button">add</mat-icon>
+  </div>
+</div>
 
 
 <ta-create-entry *ngIf="showCreateNewEntry" (onSubmit)="addEntry($event)"></ta-create-entry>

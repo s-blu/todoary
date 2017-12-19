@@ -1,18 +1,27 @@
 @import '../../variables';
 
 .diary-header {
-  border-radius: $border_radius;
   margin-bottom: 0.5em;
+  padding: 1em;
+  //background-color: $color_background;
 
-  background-color: $color_background;
-}
+  display: grid;
+  grid-template-columns: 4fr 1fr;
 
-.space {
-  flex: 1 1 auto;
-}
-.toolbar-button {
-  &:hover {
-    cursor: pointer;
+  .toolbar-buttons {
+    grid-column: 2;
+    justify-self: end;
+
+    .button {
+      margin-left: 1em;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .title {
+    grid-column: 1;
   }
 }
 
