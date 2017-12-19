@@ -42,4 +42,8 @@ export class DiaryComponent implements OnInit {
     this.databaseService.updateEntries(this.entries).then((entries) => this.entries = entries);
   }
 
+  showCreateEntry() {
+    this.showCreateNewEntry = true;
+  }
+
 }

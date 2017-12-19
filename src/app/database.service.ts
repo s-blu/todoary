@@ -117,4 +117,19 @@ export class DatabaseService {
         console.log(err);
       });
   }
+
+  getDataForExport() {
+    const data = {
+      entries: null,
+      todos: null
+    };
+
+    return this.getEntries().then((entries) => {
+      data.entries = entries;
+      return this.getOpenTodos();
+    }).then((todos) => {
+      data.todos = todos;
+      return data;
+    });
+  }
 }

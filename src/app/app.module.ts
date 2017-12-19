@@ -10,6 +10,7 @@ import {TodoService} from './todo.service';
 import {TodoEntryService} from './todo-entry.service';
 import {EntryHeadlineComponent} from './entry-headline/entry-headline.component';
 import {FormsModule} from '@angular/forms';
+import { ExportButtonComponent } from './export-button/export-button.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     DiaryComponent,
     DiaryEntryComponent,
     CreateEntryComponent,
-    EntryHeadlineComponent
+    EntryHeadlineComponent,
+    ExportButtonComponent
   ],
   imports: [
     BrowserModule,
