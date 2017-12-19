@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Entry} from '../entry';
+import {Entry} from '../entries/entry';
 import {TaCustomMaterialModule} from '../ta-custom-material/ta-custom-material.module';
-import {TodoService} from '../todo.service';
+import {TodoService} from '../todos/todo.service';
 
 @Component({
   selector: 'ta-create-entry',
@@ -24,7 +24,7 @@ export class CreateEntryComponent implements OnInit {
   }
 
   constructor(private todoService: TodoService) {
-    this.todos = this.todoService.getTodos(); // fixme this is async dude
+    this.todos = this.todoService.getOpenTodos(); // fixme this is async dude
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
-import {DatabaseService} from '../database.service';
+import {DatabaseService} from '../database/database.service';
 
 @Component({
   selector: 'ta-export-button',

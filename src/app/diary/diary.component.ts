@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Entry } from '../entry';
-import {DatabaseService} from '../database.service';
+import { Entry } from '../entries/entry';
+import {DatabaseService} from '../database/database.service';
 
 @Component({
   selector: 'ta-diary',

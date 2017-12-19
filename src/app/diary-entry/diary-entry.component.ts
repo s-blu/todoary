@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Entry } from '../entry';
+import { Entry } from '../entries/entry';
 import {TaCustomMaterialModule} from '../ta-custom-material/ta-custom-material.module';
 
 
