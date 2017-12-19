@@ -11,20 +11,20 @@ import {TodoService} from '../todo.service';
 })
 export class CreateEntryComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Entry>();
+  @Output() onCancel = new EventEmitter();
   newEntry = new Entry();
   todos;
 
   submit() {
-    // todo clear form
     this.onSubmit.emit(this.newEntry);
   }
 
   cancel() {
-    // todo clear form & create new empty Entry?! whats about timestamp then
+    this.onCancel.emit(null);
   }
 
   constructor(private todoService: TodoService) {
-    this.todos = this.todoService.getTodos();
+    this.todos = this.todoService.getTodos(); // fixme this is async dude
   }
 
   ngOnInit() {
