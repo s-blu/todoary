@@ -1,26 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { Entry } from '../entries/entry';
-import {DatabaseService} from '../database/database.service';
+import {Component, OnInit} from '@angular/core';
+import {Entry} from '../entries/entry';
+import {DiaryEntryService} from '../entries/entry.service';
 
 @Component({
   selector: 'ta-diary',
   templateUrl: './diary.component.html',
   styleUrls: ['./diary.component.scss'],
-  providers: [DatabaseService]
+  providers: [DiaryEntryService]
 })
 export class DiaryComponent implements OnInit {
   entries;
-  databaseService;
   showCreateNewEntry = false;
 
-  constructor(private db: DatabaseService) {
+  constructor(private diaryEntryService: DiaryEntryService) {
     this.entries = [];
-    this.databaseService = db;
   }
 
   ngOnInit() {
     console.log('init diary...');
-    this.databaseService.getEntries().then((entries) => {
+    this.diaryEntryService.getEntries().then((entries) => {
       console.log('entries length is ' + entries.length);
       if (entries.length === 0) {
         const demoEntry = new Entry();
@@ -36,10 +34,10 @@ export class DiaryComponent implements OnInit {
   }
 
   addEntry(entry) {
-    console.log('adding new entry...');
-    this.showCreateNewEntry = false;
-    this.entries.unshift(entry);
-    this.databaseService.updateEntries(this.entries).then((entries) => this.entries = entries);
+    this.diaryEntryService.addEntry(entry).then((entries) => {
+      this.destroyCreateEntry();
+      this.entries = entries;
+    });
   }
 
   destroyCreateEntry() {
@@ -49,5 +47,4 @@ export class DiaryComponent implements OnInit {
   showCreateEntry() {
     this.showCreateNewEntry = true;
   }
-
 }

@@ -11,6 +11,8 @@ import {TodoEntryService} from './todos/todo-entry.service';
 import {EntryHeadlineComponent} from './entry-headline/entry-headline.component';
 import {FormsModule} from '@angular/forms';
 import { ExportButtonComponent } from './export-button/export-button.component';
+import {DiaryEntryService} from './entries/entry.service';
+import {DatabaseService} from './database/database.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ExportButtonComponent } from './export-button/export-button.component';
     FormsModule,
     TaCustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService],
+  providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
