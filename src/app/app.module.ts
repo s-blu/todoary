@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import { ExportButtonComponent } from './export-button/export-button.component';
 import {DiaryEntryService} from './entries/entry.service';
 import {DatabaseService} from './database/database.service';
+import { TodoEntryEditableComponent } from './todo-entry-editable/todo-entry-editable.component';
+import { TodoEntryReadmodeComponent } from './todo-entry-readmode/todo-entry-readmode.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {DatabaseService} from './database/database.service';
     DiaryEntryComponent,
     CreateEntryComponent,
     EntryHeadlineComponent,
-    ExportButtonComponent
+    ExportButtonComponent,
+    TodoEntryEditableComponent,
+    TodoEntryReadmodeComponent
   ],
   imports: [
     BrowserModule,

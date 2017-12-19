@@ -9,7 +9,7 @@
       <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
       <div class="todos">
         <div class="entries" *ngFor="let todo of todos">
-          [{{todo.status}}] - {{todo.text}} <!--todo create todo component,  enable to delete and check todo -->
+          <ta-todo-entry-editable [todo]="todo"></ta-todo-entry-editable>
         </div>
         <!-- todo make it possible to add todos -->
       </div>

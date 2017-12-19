@@ -1,0 +1,10 @@
+<div class="todo_entry">
+  <mat-pseudo-checkbox (click)="switchDoneAndOpenStatus()" *ngIf="!isDeletedTodo()" state="{{getStateOfCheckbox()}}"></mat-pseudo-checkbox>
+  <mat-icon *ngIf="isDeletedTodo()">delete</mat-icon>
+  <!--<mat-icon *ngIf="isOpenTodo() && isNewlyCreated()">check</mat-icon>-->
+  <span class="text" ngClass="{isDeletedTodo(): deleted-todo}">{{todo.text}}</span>
+  <div class="todo-buttons">
+    <!-- todo edit button-->
+    <mat-icon (click)="setDeleted()">delete</mat-icon>
+  </div>
+</div>
