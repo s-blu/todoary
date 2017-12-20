@@ -21,7 +21,7 @@ export class CreateEntryComponent implements OnInit {
 
   ngOnInit() {
     this.todoService.getOpenTodos().then((openTodos) => {
-      this.todos = Object.assign(this.todos, openTodos); // fixme this is async dude
+      this.todos = Object.assign(this.todos, openTodos);
       console.log(this.todos);
     });
   }
@@ -41,10 +41,6 @@ export class CreateEntryComponent implements OnInit {
     const todosForEntry = [];
     let newOpenTodos;
 
-    // todo add all NEW, DONE and DELETED todos to the todosForEntry
-    // todo remove all DONE and DELETED from the openTodos list
-    // todo add all NEW to the openTodo List
-
     return this.todoService.getOpenTodos().then((unchangedTodos) => {
       newOpenTodos = this.todos.filter((todo, index) => {
         if (unchangedTodos.length < index + 1) {
@@ -58,12 +54,8 @@ export class CreateEntryComponent implements OnInit {
         }
         return true;
       });
-      console.log('newOpenTodos:');
-      console.log(newOpenTodos);
-      console.log('todosForEntry:');
-      console.log(todosForEntry);
 
-      this.todoService.updateOpenTodos(newOpenTodos).then(() => todosForEntry);
+      return this.todoService.updateOpenTodos(newOpenTodos).then(() => todosForEntry);
     });
   }
 }
