@@ -11,7 +11,7 @@
     </div>
 
     <div *ngIf="!isNoteAvailable() && !areTodosAvailable()" class="hint">
-      This entry is empty ans contains neither notes nor todos. It is save to delete it.
+      This entry is empty and contains neither notes nor todos. It is save to delete it.
     </div>
   </div>
   <span class="timestamp">{{entry.meta.timestamp | date:'short'}}</span>
