@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {DatabaseService} from '../database/database.service';
+import {Logger} from '../logger';
 
 @Injectable()
 export class DiaryEntryService {
 
-  constructor(private databaseService: DatabaseService) {
+  constructor(private databaseService: DatabaseService, private logger: Logger) {
   }
 
   getEntries() {
@@ -12,7 +13,7 @@ export class DiaryEntryService {
   }
 
   addEntry(entry) {
-    console.log('adding a new entry...');
+    this.logger.debug('adding a new entry...');
     return this.getEntries()
       .then((entries) => {
         entries.unshift(entry);
@@ -22,14 +23,14 @@ export class DiaryEntryService {
   }
 
   deleteEntry(entry) {
-    console.log('removing entry...');
+    this.logger.debug('removing entry...');
     return this.getEntries()
       .then((entries) => {
         const index = entries.indexOf(entry);
         if ( index !== -1) {
           entries.splice(index, 1);
         } else {
-          console.log('could not find given entry. cannot remove.');
+          this.logger.warn('could not find given entry. cannot remove.');
         }
         return entries;
       })

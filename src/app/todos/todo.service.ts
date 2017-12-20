@@ -11,13 +11,12 @@ export class TodoService {
   getOpenTodos() {
     return this.databaseService.getOpenTodos().then((todos) => {
       // FIXME DEBUG REMOVE ME
-      if (todos.length === 0) {
-        todos.push(new TodoEntry('Erstes Todo'));
-        todos.push(new TodoEntry('Ein weiteres Todo, mit etwas längerem Beschreibungstext'));
-        todos.push(new TodoEntry('Noch ein Todo, das vielleicht gelöscht werden könnte'));
-        todos.push(new TodoEntry('Das letzte Todo'));
-      }
-
+      // if (todos.length === 0) {
+      //   todos.push(new TodoEntry('Erstes Todo'));
+      //   todos.push(new TodoEntry('Ein weiteres Todo, mit etwas längerem Beschreibungstext'));
+      //   todos.push(new TodoEntry('Noch ein Todo, das vielleicht gelöscht werden könnte'));
+      //   todos.push(new TodoEntry('Das letzte Todo'));
+      // }
       return todos;
     });
   }

@@ -15,6 +15,7 @@ import {DiaryEntryService} from './entries/entry.service';
 import {DatabaseService} from './database/database.service';
 import { TodoEntryEditableComponent } from './todo-entry-editable/todo-entry-editable.component';
 import { TodoEntryReadmodeComponent } from './todo-entry-readmode/todo-entry-readmode.component';
+import {Logger} from './logger';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TodoEntryReadmodeComponent } from './todo-entry-readmode/todo-entry-rea
     FormsModule,
     TaCustomMaterialModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService],
+  providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
+  Logger],
   bootstrap: [AppComponent]
 })
 export class AppModule {

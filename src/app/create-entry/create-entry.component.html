@@ -11,6 +11,12 @@
         <div class="entries" *ngFor="let todo of todos">
           <ta-todo-entry-editable [todo]="todo"></ta-todo-entry-editable>
         </div>
+        <div *ngIf="!todos" class="hint">
+          Todo's could not be retrieved. Cancel and try again.
+        </div>
+        <div *ngIf="todos.length === 0" class="hint">
+          You have no open todos. Create some new ones or just be proud of yourself.
+        </div>
         <!-- todo make it possible to add todos -->
       </div>
 

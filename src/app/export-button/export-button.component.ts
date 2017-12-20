@@ -19,7 +19,6 @@ export class ExportButtonComponent implements OnInit {
    * @param element
    */
   exportData(element) {
-    console.log(element);
     this.dbService.getDataForExport().then((data) => {
       const exportString = JSON.stringify(data);
       const timestamp = new Date().toISOString();

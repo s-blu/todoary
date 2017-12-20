@@ -22,7 +22,6 @@ export class CreateEntryComponent implements OnInit {
   ngOnInit() {
     this.todoService.getOpenTodos().then((openTodos) => {
       this.todos = Object.assign(this.todos, openTodos);
-      console.log(this.todos);
     });
   }
 

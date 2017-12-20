@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Entry} from '../entries/entry';
 import {DiaryEntryService} from '../entries/entry.service';
+import {Logger} from '../logger';
 
 @Component({
   selector: 'ta-diary',
@@ -12,24 +13,22 @@ export class DiaryComponent implements OnInit {
   entries;
   showCreateNewEntry = false;
 
-  constructor(private diaryEntryService: DiaryEntryService) {
+  constructor(private diaryEntryService: DiaryEntryService, private logger: Logger) {
     this.entries = [];
   }
 
   ngOnInit() {
-    console.log('init diary...');
+    this.logger.debug('init diary...');
     this.diaryEntryService.getEntries().then((entries) => {
-      console.log('entries length is ' + entries.length);
       if (entries.length === 0) {
         const demoEntry = new Entry();
         demoEntry.notes = 'I am a Demo Entry!';
         this.addEntry(demoEntry);
       }
-      console.log('setting entries for display...');
+      this.logger.debug('setting entries for display...');
       this.entries = entries;
     }).catch(err => {
-      console.log('could not get entries for displaying:');
-      console.log(err);
+      this.logger.error('could not get entries for displaying: ' + err);
     });
   }
 
