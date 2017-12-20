@@ -2,3 +2,60 @@
   text-decoration: line-through;
   color: #9d9d9d;
 }
+
+.todo_entry {
+  display: grid;
+  grid-template-columns: 30px 3fr 1fr;
+
+  .indicator {
+    grid-column: 1;
+  }
+
+  .text {
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .todo_buttons {
+    grid-column: 3;
+    justify-self: end;
+
+    visibility: hidden;
+  }
+
+  &:hover {
+    .todo_buttons {
+      visibility: visible;
+    }
+  }
+}
+
+.deleted_indicator {
+  min-height: 16px;
+
+  .undo_deleted {
+    display: none;
+  }
+
+  &:hover {
+    .deleted {
+      display:none;
+    }
+
+    .undo_deleted {
+      display: inline;
+    }
+  }
+}
+
+.open_indicator {
+  min-height: 16px;
+}
+
+.icon-button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+

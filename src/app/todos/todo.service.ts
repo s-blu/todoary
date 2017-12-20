@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
-import { TodoEntryService } from './todo-entry.service';
+import {DatabaseService} from '../database/database.service';
+import {TodoEntry} from './todo-entry';
 
 @Injectable()
 export class TodoService {
-  openTodos;
 
-  constructor(private todoEntryService: TodoEntryService) {
-    // fixme get this shit out of the database
-    this.openTodos = [
-      this.todoEntryService.createNewTodo('erstes todo'),
-      this.todoEntryService.createNewTodo('noch ein todo'),
-      this.todoEntryService.createNewTodo('und das letzte todo')
-    ];
+  constructor(private databaseService: DatabaseService) {
   }
 
   getOpenTodos() {
-    return this.openTodos;
+    return this.databaseService.getOpenTodos().then((todos) => {
+      // FIXME DEBUG REMOVE ME
+      if (todos.length === 0) {
+        todos.push(new TodoEntry('Erstes Todo'));
+        todos.push(new TodoEntry('Ein weiteres Todo, mit etwas längerem Beschreibungstext'));
+        todos.push(new TodoEntry('Noch ein Todo, das vielleicht gelöscht werden könnte'));
+        todos.push(new TodoEntry('Das letzte Todo'));
+      }
+
+      return todos;
+    });
   }
 
-  updateOpenTodos() {
-
+  updateOpenTodos(todos) {
+    return this.databaseService.updateOpenTodos(todos);
   }
 }

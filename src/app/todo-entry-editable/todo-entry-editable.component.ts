@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TodoEntry, todoStatus} from '../todos/todo-entry';
-import {TodoEntryService} from '../todos/todo-entry.service';
-import {TodoService} from '../todos/todo.service';
 
 @Component({
   selector: 'ta-todo-entry-editable',
@@ -11,8 +9,7 @@ import {TodoService} from '../todos/todo.service';
 export class TodoEntryEditableComponent implements OnInit {
   @Input() todo: TodoEntry;
 
-
-  constructor(private todoEntryService: TodoEntryService, private todoService: TodoService) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -30,6 +27,10 @@ export class TodoEntryEditableComponent implements OnInit {
     this.todo.status = todoStatus.DELETED;
   }
 
+  undoDelete() {
+    this.todo.status = todoStatus. OPEN;
+  }
+
   isOpenTodo() {
     return this.todo.status === todoStatus.OPEN;
   }
@@ -38,24 +39,15 @@ export class TodoEntryEditableComponent implements OnInit {
     return this.todo.status === todoStatus.DELETED;
   }
 
-  isNewlyCreated() {
-    return true; // fixme implement me
+  isDoneTodo() {
+    return this.todo.status === todoStatus.DONE;
   }
 
   switchDoneAndOpenStatus() {
     if (this.todo.status === todoStatus.OPEN) {
-
+      this.setDone();
     } else {
-      this.todo.status = todoStatus.OPEN;
+      this.setOpen();
     }
   }
-
-  getStateOfCheckbox() {
-    if (this.todo.status === todoStatus.OPEN) {
-      return 'unchecked';
-    } else {
-      return 'checked';
-    }
-  }
-
 }
