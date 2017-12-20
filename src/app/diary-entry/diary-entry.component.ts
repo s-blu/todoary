@@ -18,4 +18,11 @@ export class DiaryEntryComponent implements OnInit {
   ngOnInit() {
   }
 
+  isNoteAvailable() {
+    return !!this.entry.notes;
+  }
+
+  areTodosAvailable() {
+    return this.entry.todos && this.entry.todos.length > 0;
+  }
 }

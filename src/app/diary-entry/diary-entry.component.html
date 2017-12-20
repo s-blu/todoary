@@ -1,13 +1,17 @@
 <div class="diary-entry">
   <div class="container">
-    <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
-    <div class="diary-entry-content todos">
+    <ta-entry-headline [title]='"ToDos"' *ngIf="areTodosAvailable()"></ta-entry-headline>
+    <div class="diary-entry-content todos" *ngIf="areTodosAvailable()">
       <ta-todo-entry-readmode *ngFor="let todo of entry.todos" [todo]="todo"></ta-todo-entry-readmode>
     </div>
 
-    <ta-entry-headline [title]='"Notes"'></ta-entry-headline>
-    <div class="diary-entry-content notes">
+    <ta-entry-headline [title]='"Notes"' *ngIf="isNoteAvailable()"></ta-entry-headline>
+    <div class="diary-entry-content notes" *ngIf="isNoteAvailable()">
       {{entry.notes}}
+    </div>
+
+    <div *ngIf="!isNoteAvailable() && !areTodosAvailable()" class="hint">
+      This entry is empty ans contains neither notes nor todos. It is save to delete it.
     </div>
   </div>
   <span class="timestamp">{{entry.meta.timestamp | date:'short'}}</span>

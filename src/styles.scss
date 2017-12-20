@@ -5,3 +5,8 @@ body {
   background-color: $color_background;
   font: 500 16px Roboto,"Helvetica Neue",sans-serif
 }
+
+.hint {
+  color: $color_info;
+  font-style: italic;
+}
