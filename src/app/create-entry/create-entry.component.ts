@@ -59,14 +59,15 @@ export class CreateEntryComponent implements OnInit {
     return this.todoService.getOpenTodos().then((unchangedTodos) => {
       newOpenTodos = this.todos.filter((todo, index) => {
         if (unchangedTodos.length < index + 1) {
-            // do not add newly created and instantly deleted todos to the entry or the openTodo list. Just discard them.
-            if (todo.status === todoStatus.DELETED) {
-              this.showDismissedTodosHint = true;
-              return false;
+          // do not add newly created and instantly deleted todos to the entry or the openTodo list. Just discard them.
+          if (todo.status === todoStatus.DELETED) {
+            this.showDismissedTodosHint = true;
+            return false;
 
-            }
+          }
           todosForEntry.push(todo);
-          return true;
+          // open and done todos needs to be added to the entry, but only open todos should be added to the openTodos
+          return todo.status === todoStatus.OPEN;
         }
         if (todo.status === todoStatus.DONE || todo.status === todoStatus.DELETED) {
           todosForEntry.push(todo);

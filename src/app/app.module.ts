@@ -19,6 +19,7 @@ import {Logger} from './logger';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import { DeleteDiaryEntryDialogComponent } from './delete-diary-entry-dialog/delete-diary-entry-dialog.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DeleteDiaryEntryDialogComponent } from './delete-diary-entry-dialog/del
   imports: [
     BrowserModule,
     FormsModule,
-    TaCustomMaterialModule
+    TaCustomMaterialModule,
+    HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
   Logger, MatSnackBar, MatDialog],

@@ -12,6 +12,7 @@
   .toolbar-buttons {
     grid-column: 2;
     justify-self: end;
+    align-self: center;
 
     .icon-button {
       margin-left: 1em;
@@ -20,5 +21,7 @@
 
   .title {
     grid-column: 1;
+    color: $color_headlines;
+    font: 20pt $font_face_highlight;
   }
 }

@@ -19,7 +19,8 @@
 
       <ta-entry-headline [title]='"Notes"'></ta-entry-headline>
       <mat-form-field class="full-width notes">
-        <textarea matInput name="notes" [(ngModel)]="newEntry.notes" #notes cols="5"></textarea>
+        <textarea matInput name="notes" [(ngModel)]="newEntry.notes" #notes matTextareaAutosize matAutosizeMinRows="2"
+                  matAutosizeMaxRows="7"></textarea>
         <mat-hint align="end">{{notes.value.length}}</mat-hint>
       </mat-form-field>
     </div>

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Entry} from '../entries/entry';
 import {DiaryEntryService} from '../entries/entry.service';
 import {Logger} from '../logger';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'ta-diary',
@@ -13,7 +15,7 @@ export class DiaryComponent implements OnInit {
   entries;
   showCreateNewEntry = false;
 
-  constructor(private diaryEntryService: DiaryEntryService, private logger: Logger) {
+  constructor(private diaryEntryService: DiaryEntryService, private http: HttpClient, private logger: Logger) {
     this.entries = [];
   }
 
@@ -21,9 +23,13 @@ export class DiaryComponent implements OnInit {
     this.logger.debug('init diary...');
     this.getEntries().then((entries) => {
       if (entries.length === 0) {
-        const demoEntry = new Entry();
-        demoEntry.notes = 'I am a Demo Entry!'; // FIXME get this out of a json
-        this.addEntry(demoEntry);
+        this.http.get('assets/demoentry.json')
+          .subscribe(res => {
+            const demoEntry = res['demoEntry'];
+            if (demoEntry) {
+              this.addEntry(demoEntry);
+            }
+          });
       }
     }).catch(err => {
       this.logger.error('could not get entries for displaying: ' + err);
