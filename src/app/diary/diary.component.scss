@@ -25,3 +25,13 @@
     font: 20pt $font_face_highlight;
   }
 }
+
+.footer {
+  color: $color_headlines;
+  font-size: 10pt;
+  a {
+    color: $color_headlines;
+    text-decoration: none;
+    padding-right: 2em;
+  }
+}

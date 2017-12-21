@@ -4,7 +4,9 @@ import {DiaryEntryService} from '../entries/entry.service';
 import {Logger} from '../logger';
 import {HttpClient} from '@angular/common/http';
 
+declare function require(moduleName: string): any;
 
+const { version: appVersion } = require('../../../package.json');
 @Component({
   selector: 'ta-diary',
   templateUrl: './diary.component.html',
@@ -14,6 +16,7 @@ import {HttpClient} from '@angular/common/http';
 export class DiaryComponent implements OnInit {
   entries;
   showCreateNewEntry = false;
+  version = appVersion;
 
   constructor(private diaryEntryService: DiaryEntryService, private http: HttpClient, private logger: Logger) {
     this.entries = [];
