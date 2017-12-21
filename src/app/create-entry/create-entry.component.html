@@ -14,7 +14,7 @@
         <div *ngIf="todos.length === 0" class="hint">
           You have no open todos. Everything is done - or deleted.
         </div>
-        <!-- todo make it possible to add todos -->
+        <ta-create-todo (onSubmit)="addNewTodo($event)"></ta-create-todo>
       </div>
 
       <ta-entry-headline [title]='"Notes"'></ta-entry-headline>

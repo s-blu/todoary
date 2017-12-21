@@ -1,0 +1,10 @@
+<div class="full-width create-todo">
+  <form>
+    <mat-form-field class="full-width">
+      <input matInput name="text" placeholder="New ToDo" [(ngModel)]="text">
+    </mat-form-field>
+    <button mat-icon-button type="submit" class="btn" disabled="{{!text}}" (click)="submit()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+</div>

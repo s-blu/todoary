@@ -1,4 +1,5 @@
 @import '../todos/todo-entry';
+@import '../../animations';
 
 .todo_entry {
 
@@ -22,6 +23,10 @@
 .deleted_indicator {
   min-height: 16px;
 
+  .deleted {
+    animation: bounceIn 0.2s;
+  }
+
   .undo_deleted {
     display: none;
   }
@@ -42,12 +47,6 @@
   min-height: 16px;
 }
 
-.icon-button {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .indicator {
   .done {
     animation: bounceIn 0.2s;
@@ -60,25 +59,4 @@
 
 .hidden {
   visibility: hidden;
-}
-
-@keyframes rotateIn {
-  0% {
-    transform: rotate(100deg) scale(0.6,0.6)
-  }
-  100% {
-    transform: rotate(0deg) scale(1,1)
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.6,0.6)
-  }
-  70% {
-    transform: scale(1.2, 1.2)
-  }
-  100% {
-    transform: scale(1,1)
-  }
 }

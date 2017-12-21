@@ -1,17 +1,16 @@
 <div class="diary-header">
   <span>Todoary</span>
   <div class="toolbar-buttons">
-    <ta-export-button class="button"></ta-export-button>
-    <mat-icon (click)="showCreateEntry()" class="button">add</mat-icon>
+    <ta-export-button class="icon-button"></ta-export-button>
+    <mat-icon (click)="showCreateEntry()" class="icon-button">add</mat-icon>
   </div>
 </div>
 
-
-<ta-create-entry *ngIf="showCreateNewEntry" (onSubmit)="addEntry($event)" (onCancel)="destroyCreateEntry()"></ta-create-entry>
+<ta-create-entry *ngIf="showCreateNewEntry" (onSubmit)="addEntry($event)" (onCancel)="destroyCreateEntry()" class="create-entry"></ta-create-entry>
 
 <div class="diary">
   <div class="entries" *ngFor="let entry of entries">
-    <ta-diary-entry [entry]="entry"></ta-diary-entry>
+    <ta-diary-entry [entry]="entry" class="diary-entry"></ta-diary-entry>
   </div>
 </div>
 

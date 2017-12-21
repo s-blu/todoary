@@ -16,6 +16,8 @@ import {DatabaseService} from './database/database.service';
 import { TodoEntryEditableComponent } from './todo-entry-editable/todo-entry-editable.component';
 import { TodoEntryReadmodeComponent } from './todo-entry-readmode/todo-entry-readmode.component';
 import {Logger} from './logger';
+import { CreateTodoComponent } from './create-todo/create-todo.component';
+import {MatSnackBar} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {Logger} from './logger';
     EntryHeadlineComponent,
     ExportButtonComponent,
     TodoEntryEditableComponent,
-    TodoEntryReadmodeComponent
+    TodoEntryReadmodeComponent,
+    CreateTodoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import {Logger} from './logger';
     TaCustomMaterialModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
-  Logger],
+  Logger, MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule {
