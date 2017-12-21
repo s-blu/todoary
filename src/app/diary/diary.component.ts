@@ -19,16 +19,22 @@ export class DiaryComponent implements OnInit {
 
   ngOnInit() {
     this.logger.debug('init diary...');
-    this.diaryEntryService.getEntries().then((entries) => {
+    this.getEntries().then((entries) => {
       if (entries.length === 0) {
         const demoEntry = new Entry();
-        demoEntry.notes = 'I am a Demo Entry!';
+        demoEntry.notes = 'I am a Demo Entry!'; // FIXME get this out of a json
         this.addEntry(demoEntry);
       }
-      this.logger.debug('setting entries for display...');
-      this.entries = entries;
     }).catch(err => {
       this.logger.error('could not get entries for displaying: ' + err);
+    });
+  }
+
+  getEntries() {
+    return this.diaryEntryService.getEntries().then((entries) => {
+      this.logger.debug('setting entries for display...');
+      this.entries = entries;
+      return entries;
     });
   }
 

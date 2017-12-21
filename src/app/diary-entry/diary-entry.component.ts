@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Inject, Output, EventEmitter} from '@angular/core';
 import { Entry } from '../entries/entry';
 import {TaCustomMaterialModule} from '../ta-custom-material/ta-custom-material.module';
+import {DeleteDiaryEntryDialogComponent} from '../delete-diary-entry-dialog/delete-diary-entry-dialog.component';
+import {MatDialog} from '@angular/material';
+import {DiaryEntryService} from '../entries/entry.service';
 
 
 
@@ -12,8 +15,9 @@ import {TaCustomMaterialModule} from '../ta-custom-material/ta-custom-material.m
 })
 export class DiaryEntryComponent implements OnInit {
   @Input() entry: Entry;
+  @Output() onDelete = new EventEmitter();
 
-  constructor() { }
+  constructor(public dialog: MatDialog, private diaryEntryService: DiaryEntryService) { }
 
   ngOnInit() {
   }
@@ -24,5 +28,18 @@ export class DiaryEntryComponent implements OnInit {
 
   areTodosAvailable() {
     return this.entry.todos && this.entry.todos.length > 0;
+  }
+
+  deleteEntry() {
+    const dialogRef = this.dialog.open(DeleteDiaryEntryDialogComponent, {
+      data: this.entry
+    });
+
+    dialogRef.afterClosed().subscribe(shouldDelete => {
+      console.log('The dialog was closed, result was: ' + shouldDelete);
+      if (shouldDelete) {
+        this.diaryEntryService.deleteEntry(this.entry).then(() => this.onDelete.emit());
+      }
+    });
   }
 }

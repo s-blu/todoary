@@ -1,3 +1,4 @@
+
 @keyframes rotateIn {
   0% {
     transform: rotate(100deg) scale(0.6,0.6)
@@ -16,5 +17,16 @@
   }
   100% {
     transform: scale(1,1)
+  }
+}
+
+@keyframes shiftIn {
+  0% {
+    transform: translate(10px);
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(0px);
+    visibility: visible;
   }
 }

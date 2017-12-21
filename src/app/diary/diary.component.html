@@ -10,7 +10,7 @@
 
 <div class="diary">
   <div class="entries" *ngFor="let entry of entries">
-    <ta-diary-entry [entry]="entry" class="diary-entry"></ta-diary-entry>
+    <ta-diary-entry [entry]="entry" (onDelete)="getEntries()" class="diary-entry"></ta-diary-entry>
   </div>
 </div>
 

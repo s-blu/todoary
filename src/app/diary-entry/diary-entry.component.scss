@@ -1,4 +1,16 @@
 @import '../../variables';
+@import '../../animations';
+
+.diary-entry-container {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+
+  &:hover {
+    .diary-entry-buttons {
+      animation: shiftIn 0.2s forwards 0.5s;
+    }
+  }
+}
 
 .diary-entry {
   background-color: white;
@@ -7,6 +19,7 @@
   margin-bottom: 2em;
   border-radius: $border_radius;
 
+  grid-column: 1;
   display: grid;
   grid-template-rows: 1fr 50px;
 
@@ -26,4 +39,13 @@
 
 .diary-entry-content {
   padding: 1em;
+}
+
+.diary-entry-buttons {
+  grid-column: 2;
+  padding-left: 1em;
+
+  color: $color_headlines;
+
+  visibility: hidden;
 }
