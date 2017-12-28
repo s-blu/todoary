@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Entry} from '../entries/entry';
 import {DiaryEntryService} from '../entries/entry.service';
 import {Logger} from '../logger';
 import {HttpClient} from '@angular/common/http';
