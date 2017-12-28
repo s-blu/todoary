@@ -3,6 +3,8 @@ import {Entry} from '../entries/entry';
 import {DiaryEntryService} from '../entries/entry.service';
 import {Logger} from '../logger';
 import {HttpClient} from '@angular/common/http';
+import {todoStatus} from '../todos/todo-entry';
+import {TodoService} from '../todos/todo.service';
 
 declare function require(moduleName: string): any;
 
@@ -18,7 +20,8 @@ export class DiaryComponent implements OnInit {
   showCreateNewEntry = false;
   version = appVersion;
 
-  constructor(private diaryEntryService: DiaryEntryService, private http: HttpClient, private logger: Logger) {
+  constructor(private diaryEntryService: DiaryEntryService, private http: HttpClient, private logger: Logger,
+              private todoService: TodoService) {
     this.entries = [];
   }
 
@@ -30,6 +33,8 @@ export class DiaryComponent implements OnInit {
           .subscribe(res => {
             const demoEntry = res['demoEntry'];
             if (demoEntry) {
+              const openTodos = demoEntry.todos.filter((todo) => todo.status === todoStatus.OPEN);
+              this.todoService.addToOpenTodos(openTodos);
               this.addEntry(demoEntry);
             }
           });

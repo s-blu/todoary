@@ -1,6 +1,6 @@
 .content {
     display: grid;
-    grid-template-columns: 5% 60% 1fr;
+    grid-template-columns: minmax(30px, 4%) minmax(min-content, 60%) minmax(30px, 1fr);
     grid-template-rows: 1fr;
 
   ta-diary {
