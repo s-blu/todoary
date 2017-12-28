@@ -2,7 +2,11 @@
 @import 'variables.scss';
 
 body {
-  background-color: $color_background;
+  background: url("/assets/bgsm.jpg") no-repeat center center fixed $color_background;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font: 500 16px Roboto,"Helvetica Neue",sans-serif
 }
 
