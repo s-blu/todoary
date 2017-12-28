@@ -13,6 +13,7 @@
     grid-column: 2;
     justify-self: end;
     align-self: center;
+    color: $color_icons;
 
     .icon-button {
       margin-left: 1em;
@@ -21,16 +22,16 @@
 
   .title {
     grid-column: 1;
-    color: $color_headlines;
+    color: white;
     font: 20pt $font_face_highlight;
   }
 }
 
 .footer {
-  color: $color_headlines;
+  color: $color_icons;
   font-size: 10pt;
   a {
-    color: $color_headlines;
+    color: $color_icons;
     text-decoration: none;
     padding-right: 2em;
   }
