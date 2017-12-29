@@ -1,5 +1,13 @@
 # Todoary
 
+Todoary [Todo-Diary] is a dynamic list of open todos, that logs your changes on it. All informations are saved in the 
+local storage.
+
+Hosted on http://todoary.s-blu.de/
+
+## Angular CLI generated information 
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
 
 ## Development server
