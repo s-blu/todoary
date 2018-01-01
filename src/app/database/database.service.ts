@@ -112,6 +112,7 @@ export class DatabaseService {
       .then(doc => doc.todos)
       .catch((err) => {
         this.logger.error('could not get open todos: ' + err);
+        return err;
       });
   }
 
@@ -127,6 +128,6 @@ export class DatabaseService {
     }).then((todos) => {
       data.todos = todos;
       return data;
-    });
+    }).catch(err => err);
   }
 }

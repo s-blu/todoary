@@ -1,5 +1,6 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
 import {DatabaseService} from '../database/database.service';
+import {Logger} from '../logger';
 
 @Component({
   selector: 'ta-export-button',
@@ -8,7 +9,7 @@ import {DatabaseService} from '../database/database.service';
   providers: [DatabaseService]
 })
 export class ExportButtonComponent implements OnInit {
-  constructor(private dbService: DatabaseService, private renderer: Renderer2) {
+  constructor(private dbService: DatabaseService, private renderer: Renderer2, private logger: Logger) {
   }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class ExportButtonComponent implements OnInit {
    */
   exportData(element) {
     this.dbService.getDataForExport().then((data) => {
+      this.logger.debug('got export data successfully, writing file');
       const exportString = JSON.stringify(data);
       const timestamp = new Date().toISOString();
       const filename = `todoary_export_${timestamp}.json`;
@@ -31,8 +33,12 @@ export class ExportButtonComponent implements OnInit {
       this.renderer.setAttribute(anchor, 'href', url);
       this.renderer.setAttribute(anchor, 'download', filename);
 
+      this.renderer.appendChild(window.document.body, anchor);
       anchor.click();
+      this.renderer.removeChild(window.document.body, anchor);
       anchor.remove();
+    }).catch(err => {
+      this.logger.error('Could not export data. error:' + err);
     });
   }
 }
