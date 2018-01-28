@@ -15,6 +15,9 @@
     align-self: center;
     color: $color_icons;
 
+    /* Provide some basic layout if grid layout is not supported */
+    display: inline-block;
+
     .icon-button {
       margin-left: 1em;
     }
