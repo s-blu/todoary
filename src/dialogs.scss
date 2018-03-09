@@ -1,0 +1,11 @@
+@import 'variables';
+
+.space {
+  flex: 1;
+}
+
+.explanation {
+  margin-bottom: 1em;
+  font-size:11pt;
+  color: $color_info;
+}

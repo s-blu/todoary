@@ -7,14 +7,17 @@
 
     <div class="content">
       <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
-      <div class="todos">
-        <div class="entries" *ngFor="let todo of todos">
-          <ta-todo-entry-editable [todo]="todo"></ta-todo-entry-editable>
+      <div class="todos" *ngFor="let category of todos">
+        <ta-category-header [category]="category" *ngIf="!category.default"></ta-category-header>
+        <div class="category-content" [ngClass]="{'collapsed': category.collapsed}">
+          <div class="entries">
+            <ta-todo-entry-editable [todo]="todo" *ngFor="let todo of category.todos"></ta-todo-entry-editable>
+          </div>
+          <div *ngIf="category.todos.length === 0" class="hint">
+            You have no open todos here. Everything is done - or deleted.
+          </div>
+          <ta-create-todo (onSubmit)="addNewTodo($event)" [category]="category"></ta-create-todo>
         </div>
-        <div *ngIf="todos.length === 0" class="hint">
-          You have no open todos. Everything is done - or deleted.
-        </div>
-        <ta-create-todo (onSubmit)="addNewTodo($event)"></ta-create-todo>
       </div>
 
       <ta-entry-headline [title]='"Notes"'></ta-entry-headline>

@@ -1,0 +1,9 @@
+<div class="header" [ngClass]="{'is-collapsed': category.collapsed}">
+  <span class="name">{{category.name}}</span>
+  <span class="border">
+    <span class="todo_count">({{category.todos.length}})</span>
+    <span (click)="switchVisibility()" class="button">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </span>
+  </span>
+</div>

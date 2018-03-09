@@ -1,0 +1,56 @@
+@import '../../dialogs';
+@import '../../variables';
+@import '../../animations';
+
+.mat-dialog-content {
+  width: 350px;
+}
+
+.category {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  margin-top: 0.5em;
+  padding: 5px;
+
+  .name {
+    grid-column: 1;
+  }
+
+  .indicator {
+    grid-column: 2;
+    visibility: hidden;
+    align-self: center;
+    cursor: pointer;
+
+    height: 24px;
+  }
+
+  .deleted_indicator .undo_delete {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $color_background;
+
+    .indicator {
+      visibility: visible;
+    }
+  }
+}
+
+.deleted {
+
+  .name {
+    text-decoration: line-through;
+    color: #9d9d9d;
+  }
+
+  .deleted_indicator .delete {
+    display: none;
+  }
+
+  .deleted_indicator .undo_delete {
+    display: inherit;
+    animation: rotateIn 0.15s linear;
+  }
+}

@@ -16,16 +16,19 @@ export class TodoService {
     return this.databaseService.updateOpenTodos(todos);
   }
 
-  addToOpenTodos(openTodos) {
+  addOpenTodosToDefaultCategory(openTodos) {
     if (!openTodos || !(openTodos instanceof Array)) {
       this.logger.warn(`openTodos ${JSON.stringify(openTodos)} are invalid. Do nothing.`);
       return;
     }
 
     return this.databaseService.getOpenTodos()
-      .then(todos => {
-        const newOpenTodos = todos.concat(openTodos);
-        return newOpenTodos;
+      .then(todoCategories => {
+        const defaultCategory = todoCategories.find((cat) => cat.default);
+        if (defaultCategory) {
+          defaultCategory.todos = defaultCategory.todos.concat(openTodos);
+        }
+        return todoCategories;
       })
       .then(todos => this.updateOpenTodos(todos));
   }
