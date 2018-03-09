@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoEntryReadmodeComponent } from './todo-entry-readmode.component';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('TodoEntryReadmodeComponent', () => {
   let component: TodoEntryReadmodeComponent;

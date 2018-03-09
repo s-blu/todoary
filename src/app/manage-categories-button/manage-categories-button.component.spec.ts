@@ -1,15 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ManageCategoriesButtonComponent } from './manage-categories-button.component';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('ManageCategoriesButtonComponent', () => {
   let component: ManageCategoriesButtonComponent;
   let fixture: ComponentFixture<ManageCategoriesButtonComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ManageCategoriesButtonComponent ]
-    })
+    TestBed.configureTestingModule(ModuleMetaData.getMetaData())
     .compileComponents();
   }));
 

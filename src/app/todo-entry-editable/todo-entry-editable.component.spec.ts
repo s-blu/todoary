@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoEntryEditableComponent } from './todo-entry-editable.component';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('TodoEntryEditableComponent', () => {
   let component: TodoEntryEditableComponent;

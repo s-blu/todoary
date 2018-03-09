@@ -1,12 +1,11 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { DiaryEntryService } from './entry.service';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('DiaryEntryService', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [DiaryEntryService]
-    });
+    TestBed.configureTestingModule(ModuleMetaData.getMetaData());
   });
 
   it('should be created', inject([DiaryEntryService], (service: DiaryEntryService) => {

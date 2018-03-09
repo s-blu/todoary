@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateCategoryDialogComponent } from './create-category-dialog.component';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('CreateCategoryDialogComponent', () => {
   let component: CreateCategoryDialogComponent;

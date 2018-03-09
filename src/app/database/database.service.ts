@@ -190,6 +190,7 @@ export class DatabaseService {
     return db.get(this.openTodosKey).then((todosEntry) => {
       const defaultCategory = new Category('default');
       defaultCategory.default = true;
+      defaultCategory.todos = todosEntry;
 
       db.bulkDocs([
         {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiaryEntryComponent } from './diary-entry.component';
+import {ModuleMetaData} from "../moduleMetaData";
 
 describe('DiaryEntryComponent', () => {
   let component: DiaryEntryComponent;
