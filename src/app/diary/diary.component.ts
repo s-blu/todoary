@@ -33,7 +33,7 @@ export class DiaryComponent implements OnInit {
             const demoEntry = res['demoEntry'];
             if (demoEntry) {
               const openTodos = demoEntry.todos.filter((todo) => todo.status === todoStatus.OPEN);
-              this.todoService.addToOpenTodos(openTodos);
+              this.todoService.addOpenTodosToDefaultCategory(openTodos);
               this.addEntry(demoEntry);
             }
           });

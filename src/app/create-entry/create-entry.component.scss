@@ -42,8 +42,11 @@
     grid-row: 2;
   }
 
-  .todos {
+  .category-content {
     margin: 1em;
     margin-bottom: 0;
   }
+}
+.collapsed {
+  display: none;
 }

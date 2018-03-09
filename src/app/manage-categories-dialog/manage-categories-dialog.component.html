@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Manage Categories</h2>
+<form>
+  <mat-dialog-content>
+
+    <div class="explanation">Manage your categories by deleting unneeded ones. Todos of deleted categories will be added to the root.</div>
+    <div class="category-list">
+      <div class="category" *ngFor="let cat of categories" [ngClass]="{'deleted': cat.markedAsDeleted}">
+        <span class="name">{{cat.name}}</span>
+        <div class="deleted_indicator indicator" (click)="markAsDeleted(cat)">
+          <mat-icon class="icon-button delete">delete</mat-icon>
+          <mat-icon class="icon-button undo_delete">replay</mat-icon>
+        </div>
+      </div>
+    </div>
+    </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <span class="space"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="categories" type="submit">Ok</button>
+  </mat-dialog-actions>
+</form>
