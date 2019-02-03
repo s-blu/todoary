@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TodoEntryReadmodeComponent } from './todo-entry-readmode.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {TodoEntryReadmodeComponent} from './todo-entry-readmode.component';
 
 describe('TodoEntryReadmodeComponent', () => {
   let component: TodoEntryReadmodeComponent;
@@ -9,9 +8,9 @@ describe('TodoEntryReadmodeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoEntryReadmodeComponent ]
+      declarations: [TodoEntryReadmodeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { DiaryEntryService } from './entry.service';
+import {DiaryEntryService} from './entry.service';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('DiaryEntryService', () => {

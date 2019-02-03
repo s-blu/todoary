@@ -7,7 +7,8 @@ import {TodoService} from '../../todo/todos/todo.service';
 
 declare function require(moduleName: string): any;
 
-const { version: appVersion } = require('../../../../package.json');
+const {version: appVersion} = require('../../../../package.json');
+
 @Component({
   selector: 'ta-diary',
   templateUrl: './diary.component.html',

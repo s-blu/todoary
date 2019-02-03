@@ -28,7 +28,7 @@ export class TodoEntryEditableComponent implements OnInit {
   }
 
   undoDelete() {
-    this.todo.status = todoStatus. OPEN;
+    this.todo.status = todoStatus.OPEN;
   }
 
   isOpenTodo() {

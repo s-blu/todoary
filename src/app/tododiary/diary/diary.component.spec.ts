@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DiaryComponent } from './diary.component';
+import {DiaryComponent} from './diary.component';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('DiaryComponent', () => {
@@ -9,7 +9,7 @@ describe('DiaryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

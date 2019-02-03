@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CategoryHeaderComponent } from './category-header.component';
+import {CategoryHeaderComponent} from './category-header.component';
 import {ModuleMetaData} from "../moduleMetaData";
 
 describe('CategoryHeaderComponent', () => {
@@ -9,9 +9,9 @@ describe('CategoryHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CategoryHeaderComponent ]
+      declarations: [CategoryHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

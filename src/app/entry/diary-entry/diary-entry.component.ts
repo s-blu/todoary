@@ -1,10 +1,9 @@
-import {Component, OnInit, Input, Inject, Output, EventEmitter} from '@angular/core';
-import { Entry } from '../../tododiary/entries/entry';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Entry} from '../../tododiary/entries/entry';
 import {TaCustomMaterialModule} from '../../ta-custom-material/ta-custom-material.module';
 import {DeleteDiaryEntryDialogComponent} from '../delete-diary-entry-dialog/delete-diary-entry-dialog.component';
 import {MatDialog} from '@angular/material';
 import {DiaryEntryService} from '../../tododiary/entries/entry.service';
-
 
 
 @Component({
@@ -17,7 +16,8 @@ export class DiaryEntryComponent implements OnInit {
   @Input() entry: Entry;
   @Output() onDelete = new EventEmitter();
 
-  constructor(public dialog: MatDialog, private diaryEntryService: DiaryEntryService) { }
+  constructor(public dialog: MatDialog, private diaryEntryService: DiaryEntryService) {
+  }
 
   ngOnInit() {
   }

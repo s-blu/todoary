@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ExportButtonComponent } from './export-button.component';
+import {ExportButtonComponent} from './export-button.component';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('ExportButtonComponent', () => {
@@ -9,7 +9,7 @@ describe('ExportButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

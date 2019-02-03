@@ -1,6 +1,3 @@
-
-
-
 enum todoStatus {
   OPEN,
   DONE,

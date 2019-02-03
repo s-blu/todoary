@@ -1,6 +1,8 @@
+///<reference path="../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
 import {Component, Input, OnInit} from '@angular/core';
 import {TodoEntry, todoStatus} from '../todos/todo-entry';
 
+// @ts-ignore
 @Component({
   selector: 'ta-todo-entry-readmode',
   templateUrl: './todo-entry-readmode.component.html',
@@ -9,7 +11,8 @@ import {TodoEntry, todoStatus} from '../todos/todo-entry';
 export class TodoEntryReadmodeComponent implements OnInit {
   @Input() todo: TodoEntry;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

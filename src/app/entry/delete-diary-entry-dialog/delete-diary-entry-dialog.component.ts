@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Entry} from '../../tododiary/entries/entry';
 
@@ -7,11 +7,12 @@ import {Entry} from '../../tododiary/entries/entry';
   templateUrl: './delete-diary-entry-dialog.component.html',
   styleUrls: ['./delete-diary-entry-dialog.component.scss']
 })
-export class DeleteDiaryEntryDialogComponent  {
+export class DeleteDiaryEntryDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DeleteDiaryEntryDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Entry) { }
+    @Inject(MAT_DIALOG_DATA) public data: Entry) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

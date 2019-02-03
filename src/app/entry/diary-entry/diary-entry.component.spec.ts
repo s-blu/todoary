@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DiaryEntryComponent } from './diary-entry.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {DiaryEntryComponent} from './diary-entry.component';
 
 describe('DiaryEntryComponent', () => {
   let component: DiaryEntryComponent;
@@ -9,9 +8,9 @@ describe('DiaryEntryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiaryEntryComponent ]
+      declarations: [DiaryEntryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

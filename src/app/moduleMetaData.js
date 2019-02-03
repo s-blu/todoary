@@ -25,7 +25,10 @@ export class ModuleMetaData {
         TaCustomMaterialModule,
         HttpClientModule
       ],
-      providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
+      providers: [{
+        provide: LOCALE_ID,
+        useValue: 'de'
+      }, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
         Logger, MatSnackBar, MatDialog, CategoryService]
     }
   }

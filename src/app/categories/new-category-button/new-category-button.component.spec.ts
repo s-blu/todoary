@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NewCategoryButtonComponent } from './new-category-button.component';
+import {NewCategoryButtonComponent} from './new-category-button.component';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('NewCategoryButtonComponent', () => {
@@ -9,7 +9,7 @@ describe('NewCategoryButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

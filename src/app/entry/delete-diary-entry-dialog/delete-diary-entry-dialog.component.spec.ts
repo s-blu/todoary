@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DeleteDiaryEntryDialogComponent } from './delete-diary-entry-dialog.component';
+import {DeleteDiaryEntryDialogComponent} from './delete-diary-entry-dialog.component';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('DeleteDiaryEntryDialogComponent', () => {
@@ -9,7 +9,7 @@ describe('DeleteDiaryEntryDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

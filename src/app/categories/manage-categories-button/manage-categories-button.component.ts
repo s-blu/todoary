@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../category/category.service';
 import {MatDialog} from '@angular/material';
 import {ManageCategoriesDialogComponent} from '../manage-categories-dialog/manage-categories-dialog.component';
@@ -10,7 +10,8 @@ import {ManageCategoriesDialogComponent} from '../manage-categories-dialog/manag
 })
 export class ManageCategoriesButtonComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private categoryService: CategoryService) { }
+  constructor(public dialog: MatDialog, private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
   }

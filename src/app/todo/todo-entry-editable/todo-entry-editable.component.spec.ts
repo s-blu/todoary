@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TodoEntryEditableComponent } from './todo-entry-editable.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {TodoEntryEditableComponent} from './todo-entry-editable.component';
 
 describe('TodoEntryEditableComponent', () => {
   let component: TodoEntryEditableComponent;
@@ -9,9 +8,9 @@ describe('TodoEntryEditableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoEntryEditableComponent ]
+      declarations: [TodoEntryEditableComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

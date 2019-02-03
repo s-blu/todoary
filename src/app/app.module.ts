@@ -10,22 +10,22 @@ import {TodoService} from './todo/todos/todo.service';
 import {TodoEntryService} from './todo/todos/todo-entry.service';
 import {EntryHeadlineComponent} from './entry/entry-headline/entry-headline.component';
 import {FormsModule} from '@angular/forms';
-import { ExportButtonComponent } from './importexport/export-button/export-button.component';
+import {ExportButtonComponent} from './importexport/export-button/export-button.component';
 import {DiaryEntryService} from './tododiary/entries/entry.service';
 import {DatabaseService} from './tododiary/database/database.service';
-import { TodoEntryEditableComponent } from './todo/todo-entry-editable/todo-entry-editable.component';
-import { TodoEntryReadmodeComponent } from './todo/todo-entry-readmode/todo-entry-readmode.component';
+import {TodoEntryEditableComponent} from './todo/todo-entry-editable/todo-entry-editable.component';
+import {TodoEntryReadmodeComponent} from './todo/todo-entry-readmode/todo-entry-readmode.component';
 import {Logger} from './logger';
-import { CreateTodoComponent } from './todo/create-todo/create-todo.component';
+import {CreateTodoComponent} from './todo/create-todo/create-todo.component';
 import {MatDialog, MatSnackBar} from '@angular/material';
-import { DeleteDiaryEntryDialogComponent } from './entry/delete-diary-entry-dialog/delete-diary-entry-dialog.component';
+import {DeleteDiaryEntryDialogComponent} from './entry/delete-diary-entry-dialog/delete-diary-entry-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
-import { NewCategoryButtonComponent } from './categories/new-category-button/new-category-button.component';
-import { CreateCategoryDialogComponent } from './categories/create-category-dialog/create-category-dialog.component';
-import { CategoryHeaderComponent } from './categories/category-header/category-header.component';
+import {NewCategoryButtonComponent} from './categories/new-category-button/new-category-button.component';
+import {CreateCategoryDialogComponent} from './categories/create-category-dialog/create-category-dialog.component';
+import {CategoryHeaderComponent} from './categories/category-header/category-header.component';
 import {CategoryService} from './categories/category/category.service';
-import { ManageCategoriesDialogComponent } from './categories/manage-categories-dialog/manage-categories-dialog.component';
-import { ManageCategoriesButtonComponent } from './categories/manage-categories-button/manage-categories-button.component';
+import {ManageCategoriesDialogComponent} from './categories/manage-categories-dialog/manage-categories-dialog.component';
+import {ManageCategoriesButtonComponent} from './categories/manage-categories-button/manage-categories-button.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { ManageCategoriesButtonComponent } from './categories/manage-categories-
     HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
-  Logger, MatSnackBar, MatDialog, CategoryService],
+    Logger, MatSnackBar, MatDialog, CategoryService],
   bootstrap: [AppComponent],
   entryComponents: [DeleteDiaryEntryDialogComponent, CreateCategoryDialogComponent, ManageCategoriesDialogComponent]
 })

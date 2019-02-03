@@ -38,40 +38,6 @@ export class DatabaseService {
     });
   }
 
-  private createDatabase() {
-    this.db = new PouchDB(this.dbName);
-    // initialize database if empty
-    return this.initializeDatabase(this.db);
-  }
-
-  private initializeDatabase(db) {
-    return db.info().then((info) => {
-      if (info.doc_count === 0) {
-        const defaultCategory = new Category('default');
-        defaultCategory.default = true;
-
-        return db.bulkDocs([
-          {
-            '_id': this.metaDataKey,
-            'db_version': TODOARY_DB_VERSION
-          },
-          {
-            '_id': this.entriesKey,
-            'entries': []
-          },
-          {
-            '_id': this.todoCategoriesKey,
-            'categories': [defaultCategory]
-          }
-        ]);
-      }
-    }).then(() => {
-      this.logger.debug('successfully initalized, returning database');
-      return db;
-    });
-  }
-
-
   updateEntries(entries) {
     let db;
     this.logger.debug('updating entries...');
@@ -202,6 +168,39 @@ export class DatabaseService {
           'categories': [defaultCategory]
         }
       ]);
+    });
+  }
+
+  private createDatabase() {
+    this.db = new PouchDB(this.dbName);
+    // initialize database if empty
+    return this.initializeDatabase(this.db);
+  }
+
+  private initializeDatabase(db) {
+    return db.info().then((info) => {
+      if (info.doc_count === 0) {
+        const defaultCategory = new Category('default');
+        defaultCategory.default = true;
+
+        return db.bulkDocs([
+          {
+            '_id': this.metaDataKey,
+            'db_version': TODOARY_DB_VERSION
+          },
+          {
+            '_id': this.entriesKey,
+            'entries': []
+          },
+          {
+            '_id': this.todoCategoriesKey,
+            'categories': [defaultCategory]
+          }
+        ]);
+      }
+    }).then(() => {
+      this.logger.debug('successfully initalized, returning database');
+      return db;
     });
   }
 }

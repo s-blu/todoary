@@ -1,6 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {TodoEntryEditableComponent} from './todo/todo-entry-editable/todo-entry-editable.component';
 import {CreateTodoComponent} from './todo/create-todo/create-todo.component';
 import {CreateEntryComponent} from './entry/create-entry/create-entry.component';
@@ -24,7 +22,7 @@ import {DiaryEntryService} from './tododiary/entries/entry.service';
 import {TodoEntryService} from './todo/todos/todo-entry.service';
 import {CategoryService} from './categories/category/category.service';
 import {Logger} from './logger';
-import {LOCALE_ID, SchemaMetadata} from '@angular/core';
+import {LOCALE_ID} from '@angular/core';
 import {DatabaseService} from './tododiary/database/database.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 

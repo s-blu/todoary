@@ -11,7 +11,8 @@ export class ManageCategoriesDialogComponent implements OnInit {
   categories;
   deleted;
 
-  constructor(public dialogRef: MatDialogRef<ManageCategoriesDialogComponent>, private categoryService: CategoryService) { }
+  constructor(public dialogRef: MatDialogRef<ManageCategoriesDialogComponent>, private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
     this.deleted = [];

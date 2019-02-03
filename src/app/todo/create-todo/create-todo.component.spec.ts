@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CreateTodoComponent } from './create-todo.component';
+import {CreateTodoComponent} from './create-todo.component';
 import {ModuleMetaData} from "../moduleMetaData";
 
 describe('CreateTodoComponent', () => {
@@ -9,7 +9,7 @@ describe('CreateTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

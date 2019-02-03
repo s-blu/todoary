@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CreateCategoryDialogComponent } from './create-category-dialog.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {CreateCategoryDialogComponent} from './create-category-dialog.component';
 
 describe('CreateCategoryDialogComponent', () => {
   let component: CreateCategoryDialogComponent;
@@ -9,9 +8,9 @@ describe('CreateCategoryDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateCategoryDialogComponent ]
+      declarations: [CreateCategoryDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

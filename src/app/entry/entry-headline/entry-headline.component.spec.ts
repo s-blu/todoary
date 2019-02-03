@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EntryHeadlineComponent } from './entry-headline.component';
+import {EntryHeadlineComponent} from './entry-headline.component';
 import {ModuleMetaData} from "../../moduleMetaData";
 
 describe('EntryHeadlineComponent', () => {
@@ -9,7 +9,7 @@ describe('EntryHeadlineComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule(ModuleMetaData.getMetaData())
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

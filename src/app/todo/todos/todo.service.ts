@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DatabaseService} from '../../tododiary/database/database.service';
 import {Logger} from '../../logger';
 

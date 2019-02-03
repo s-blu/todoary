@@ -12,7 +12,8 @@ export class CreateTodoComponent implements OnInit {
   text;
   placeholdertext;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.placeholdertext = 'new todo';

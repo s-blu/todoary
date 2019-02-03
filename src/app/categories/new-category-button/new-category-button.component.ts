@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {CreateCategoryDialogComponent} from '../create-category-dialog/create-category-dialog.component';
 import {CategoryService} from '../category/category.service';
@@ -10,7 +10,8 @@ import {CategoryService} from '../category/category.service';
 })
 export class NewCategoryButtonComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private categoryService: CategoryService) { }
+  constructor(public dialog: MatDialog, private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
   }
