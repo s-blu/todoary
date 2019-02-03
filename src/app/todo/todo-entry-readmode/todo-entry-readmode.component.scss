@@ -1,0 +1,14 @@
+@import '../todos/todo-entry';
+@import '../../../assets/styles/variables';
+
+.added {
+  color: $color_indicator_new;
+}
+.category {
+  color: $color_info;
+  font-size: 10pt;
+
+  justify-self: end;
+  align-self: center;
+  padding-right: 2em;
+}

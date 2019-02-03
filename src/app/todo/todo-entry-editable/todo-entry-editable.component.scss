@@ -1,0 +1,62 @@
+@import '../todos/todo-entry';
+@import '../../../assets/styles/dialogs';
+
+.todo_entry {
+
+  .todo_buttons {
+    grid-column: 3;
+    justify-self: end;
+
+    visibility: hidden;
+  }
+
+  &:hover {
+    .todo_buttons {
+      visibility: visible;
+      .icon-button {
+        animation: bounceIn 0.07s;
+      }
+    }
+  }
+}
+
+.deleted_indicator {
+  min-height: 16px;
+
+  .deleted {
+    animation: bounceIn 0.2s;
+  }
+
+  .undo_deleted {
+    display: none;
+  }
+
+  &:hover {
+    .deleted {
+      display:none;
+    }
+
+    .undo_deleted {
+      display: inherit;
+      animation: rotateIn 0.15s linear;
+    }
+  }
+}
+
+.open_indicator {
+  min-height: 16px;
+}
+
+.indicator {
+  .done {
+    animation: bounceIn 0.2s;
+  }
+
+  .open {
+    animation: bounceIn 0.2s;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
