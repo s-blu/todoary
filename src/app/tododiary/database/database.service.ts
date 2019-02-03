@@ -5,7 +5,9 @@ import {Category} from '../../categories/category/category';
 
 const TODOARY_DB_VERSION = '2';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DatabaseService {
   db;
   dbName = 'todoary';

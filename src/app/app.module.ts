@@ -26,6 +26,10 @@ import {CategoryHeaderComponent} from './categories/category-header/category-hea
 import {CategoryService} from './categories/category/category.service';
 import {ManageCategoriesDialogComponent} from './categories/manage-categories-dialog/manage-categories-dialog.component';
 import {ManageCategoriesButtonComponent} from './categories/manage-categories-button/manage-categories-button.component';
+import {CommonModule, registerLocaleData} from "@angular/common";
+import de from '@angular/common/locales/de';
+
+registerLocaleData(de);
 
 @NgModule({
   declarations: [
@@ -48,6 +52,7 @@ import {ManageCategoriesButtonComponent} from './categories/manage-categories-bu
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     TaCustomMaterialModule,
     HttpClientModule
   ],

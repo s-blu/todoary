@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {DatabaseService} from '../../tododiary/database/database.service';
 import {Logger} from '../../logger';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TodoService {
 
   constructor(private databaseService: DatabaseService, private logger: Logger) {

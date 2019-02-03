@@ -17,7 +17,7 @@ const {version: appVersion} = require('../../../../package.json');
 })
 export class DiaryComponent implements OnInit {
   entries;
-  showCreateNewEntry = false;
+  showCreateNewEntry = true;
   version = appVersion;
 
   constructor(private diaryEntryService: DiaryEntryService, private http: HttpClient, private logger: Logger,

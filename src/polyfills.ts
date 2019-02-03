@@ -45,7 +45,7 @@ import 'core-js/es7/reflect';
  */
 import 'zone.js/dist/zone'; // Included with Angular CLI.
 
-
+(window as any).global = window;
 /**
  * Required to support Web Animations `@angular/platform-browser/animations`.
  * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
