@@ -1,7 +1,7 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {TodoService} from './todo.service';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {ModuleMetaData} from '../../moduleMetaData';
 
 describe('TodoService', () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {NewCategoryButtonComponent} from './new-category-button.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {ModuleMetaData} from '../../moduleMetaData';
 
 describe('NewCategoryButtonComponent', () => {
   let component: NewCategoryButtonComponent;

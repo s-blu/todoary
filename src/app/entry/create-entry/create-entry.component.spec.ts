@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CreateEntryComponent} from './create-entry.component';
-import {ModuleMetaData} from "../moduleMetaData";
+import {ModuleMetaData} from '../moduleMetaData';
 
 describe('CreateEntryComponent', () => {
   let component: CreateEntryComponent;

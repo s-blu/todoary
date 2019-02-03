@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ExportButtonComponent} from './export-button.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {ModuleMetaData} from '../../moduleMetaData';
 
 describe('ExportButtonComponent', () => {
   let component: ExportButtonComponent;

@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DeleteDiaryEntryDialogComponent} from './delete-diary-entry-dialog.component';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {ModuleMetaData} from '../../moduleMetaData';
 
 describe('DeleteDiaryEntryDialogComponent', () => {
   let component: DeleteDiaryEntryDialogComponent;

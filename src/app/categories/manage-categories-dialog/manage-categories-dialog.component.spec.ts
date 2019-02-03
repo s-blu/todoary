@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ManageCategoriesDialogComponent} from './manage-categories-dialog.component';
-import {ModuleMetaData} from "../moduleMetaData";
+import {ModuleMetaData} from '../moduleMetaData';
 
 describe('ManageCategoriesDialogComponent', () => {
   let component: ManageCategoriesDialogComponent;

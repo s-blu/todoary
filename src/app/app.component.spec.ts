@@ -1,6 +1,6 @@
 import {async, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {ModuleMetaData} from "./moduleMetaData";
+import {ModuleMetaData} from './moduleMetaData';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

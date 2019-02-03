@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CreateTodoComponent} from './create-todo.component';
-import {ModuleMetaData} from "../moduleMetaData";
+import {ModuleMetaData} from '../moduleMetaData';
 
 describe('CreateTodoComponent', () => {
   let component: CreateTodoComponent;

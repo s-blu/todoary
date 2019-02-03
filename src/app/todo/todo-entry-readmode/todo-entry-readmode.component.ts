@@ -1,4 +1,4 @@
-///<reference path="../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
+///<reference path='../../../../node_modules/@angular/core/src/metadata/directives.d.ts'/>
 import {Component, Input, OnInit} from '@angular/core';
 import {TodoEntry, todoStatus} from '../todos/todo-entry';
 

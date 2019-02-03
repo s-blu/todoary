@@ -1,7 +1,7 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {DatabaseService} from './database.service';
-import {ModuleMetaData} from "../../moduleMetaData";
+import {ModuleMetaData} from '../../moduleMetaData';
 
 describe('DatabaseService', () => {
   beforeEach(() => {

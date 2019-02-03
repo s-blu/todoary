@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CategoryHeaderComponent} from './category-header.component';
-import {ModuleMetaData} from "../moduleMetaData";
+import {ModuleMetaData} from '../moduleMetaData';
 
 describe('CategoryHeaderComponent', () => {
   let component: CategoryHeaderComponent;

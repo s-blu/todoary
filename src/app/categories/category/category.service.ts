@@ -57,7 +57,8 @@ export class CategoryService {
           return;
         }
 
-        this.logger.info(`Adding todos (${categoryToDelete.todos.length}) of deleted category "${categoryToDelete.name}" to default category ...`);
+        this.logger.info(`Adding todos (${categoryToDelete.todos.length}) of deleted category
+         '${categoryToDelete.name}' to default category ...`);
         defaultCategory.todos = defaultCategory.todos.concat(categoryToDelete.todos);
         categoriesFromDb.splice(categoriesFromDb.indexOf(categoryToDelete), 1);
       });
