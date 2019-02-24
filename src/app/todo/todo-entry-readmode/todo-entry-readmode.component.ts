@@ -22,6 +22,10 @@ export class TodoEntryReadmodeComponent implements OnInit {
     return this.todo.status === todoStatus.OPEN;
   }
 
+  isMovedTodo() {
+    return !this.todo.isNew && this.todo.isMoved && this.todo.status === todoStatus.OPEN;
+  }
+
   isDeletedTodo() {
     return this.todo.status === todoStatus.DELETED;
   }

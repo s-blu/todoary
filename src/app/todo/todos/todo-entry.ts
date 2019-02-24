@@ -7,6 +7,8 @@ enum todoStatus {
 class TodoEntry {
   status;
   text;
+  isNew;
+  isMoved;
 
   constructor(text) {
     this.status = todoStatus.OPEN;

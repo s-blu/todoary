@@ -5,17 +5,19 @@ import {Category} from '../../categories/category/category';
 
 const TODOARY_DB_VERSION = '2';
 
+export const DATABASE_KEYS = {
+  DB_NAME: 'todoary',
+  ENTRIES: 'todoary_entries',
+  OPEN_TODOS: 'todoary_opentodos',
+  CATEGORIES: 'todoary_todocategories',
+  METADATA: 'todoary_meta'
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
   db;
-  dbName = 'todoary';
-  entriesKey = 'todoary_entries';
-  openTodosKey = 'todoary_opentodos';
-  todoCategoriesKey = 'todoary_todocategories';
-  metaDataKey = 'todoary_meta';
-
 
   constructor(private logger: Logger) {
   }
@@ -28,7 +30,7 @@ export class DatabaseService {
       });
     };
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       if (!this.db) {
         this.logger.info('No database found. Trying to fetch it ...');
         this.createDatabase().then(() => {
@@ -46,7 +48,7 @@ export class DatabaseService {
 
     return this.getOrCreateDatabase()
       .then((database) => db = database)
-      .then(() => db.get(this.entriesKey))
+      .then(() => db.get(DATABASE_KEYS.ENTRIES))
       .then((doc) => {
         doc.entries = entries;
         return db.put(doc);
@@ -64,7 +66,7 @@ export class DatabaseService {
     this.logger.debug('getting entries...');
     return this.getOrCreateDatabase()
       .then((database) => db = database)
-      .then(() => db.get(this.entriesKey))
+      .then(() => db.get(DATABASE_KEYS.ENTRIES))
       .then((doc) => doc.entries)
       .catch((error) => {
         this.logger.error('could not get entries: ' + error);
@@ -72,22 +74,22 @@ export class DatabaseService {
       });
   }
 
-  updateOpenTodos(todos) {
+  updateCategoriesWithTodos(todos) {
     let db;
     this.logger.debug('updating todos...');
     return this.getOrCreateDatabase()
       .then((database) => db = database)
-      .then(() => db.get(this.todoCategoriesKey))
+      .then(() => db.get(DATABASE_KEYS.CATEGORIES))
       .then((doc) => {
         doc.categories = todos;
         return db.put(doc);
       })
       .then(() => {
         this.logger.debug('successfully updated open todos in database!');
-        return this.getOpenTodos();
+        return this.getCategoriesWithTodos();
       })
       .catch((error) => {
-        this.logger.error('could not execute updateOpenTodos: ' + error);
+        this.logger.error('could not execute updateCategoriesWithTodos: ' + error);
         return error;
       });
   }
@@ -97,14 +99,14 @@ export class DatabaseService {
     this.logger.debug(`creating new category ${category}`);
     return this.getOrCreateDatabase()
       .then((database) => db = database)
-      .then(() => db.get(this.todoCategoriesKey))
+      .then(() => db.get(DATABASE_KEYS.CATEGORIES))
       .then((doc) => {
         doc.categories.push(category);
         return db.put(doc);
       })
       .then(() => {
         this.logger.debug(`successfully created new category ${category.name}`);
-        return this.getOpenTodos();
+        return this.getCategoriesWithTodos();
       })
       .catch((error) => {
         this.logger.error('could not execute createNewCategory: ' + error);
@@ -112,12 +114,12 @@ export class DatabaseService {
       });
   }
 
-  getOpenTodos() {
+  getCategoriesWithTodos() {
     let db;
     this.logger.debug('getting todos...');
     return this.getOrCreateDatabase()
       .then((database) => db = database)
-      .then(() => db.get(this.todoCategoriesKey))
+      .then(() => db.get(DATABASE_KEYS.CATEGORIES))
       .then(doc => doc.categories)
       .catch((err) => {
         this.logger.error('could not get open todos: ' + err);
@@ -133,7 +135,7 @@ export class DatabaseService {
 
     return this.getEntries().then((entries) => {
       data.entries = entries;
-      return this.getOpenTodos();
+      return this.getCategoriesWithTodos();
     }).then((todos) => {
       data.categories = todos;
       return data;
@@ -141,7 +143,7 @@ export class DatabaseService {
   }
 
   _migrateDatabaseIfNecessary(db) {
-    return db.get(this.metaDataKey).then((metadata) => {
+    return db.get(DATABASE_KEYS.METADATA).then(() => {
       // v1 did not have any metadata, hence it needs to be migrated by catching the 404 error. there is nothing else to migrate yet.
     }).catch(error => {
       // v1 databases have no metadata at all
@@ -155,18 +157,18 @@ export class DatabaseService {
 
   _migrateDatabaseStructureV1ToV2(db) {
     this.logger.info('migrating database from v1 to v2 ...');
-    return db.get(this.openTodosKey).then((todosEntry) => {
+    return db.get(DATABASE_KEYS.OPEN_TODOS).then((todosEntry) => {
       const defaultCategory = new Category('default');
       defaultCategory.default = true;
       defaultCategory.todos = todosEntry;
 
       db.bulkDocs([
         {
-          '_id': this.metaDataKey,
+          '_id': DATABASE_KEYS.METADATA,
           'db_version': '2'
         },
         {
-          '_id': this.todoCategoriesKey,
+          '_id': DATABASE_KEYS.CATEGORIES,
           'categories': [defaultCategory]
         }
       ]);
@@ -174,7 +176,7 @@ export class DatabaseService {
   }
 
   private createDatabase() {
-    this.db = new PouchDB(this.dbName);
+    this.db = new PouchDB(DATABASE_KEYS.DB_NAME);
     // initialize database if empty
     return this.initializeDatabase(this.db);
   }
@@ -187,15 +189,15 @@ export class DatabaseService {
 
         return db.bulkDocs([
           {
-            '_id': this.metaDataKey,
+            '_id': DATABASE_KEYS.METADATA,
             'db_version': TODOARY_DB_VERSION
           },
           {
-            '_id': this.entriesKey,
+            '_id': DATABASE_KEYS.ENTRIES,
             'entries': []
           },
           {
-            '_id': this.todoCategoriesKey,
+            '_id': DATABASE_KEYS.CATEGORIES,
             'categories': [defaultCategory]
           }
         ]);

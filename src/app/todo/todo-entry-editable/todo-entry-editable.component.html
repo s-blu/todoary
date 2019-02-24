@@ -9,7 +9,6 @@
   </div>
   <span class="text" [ngClass]="{'deleted-todo' : isDeletedTodo()}">{{todo.text}}</span>
   <div class="todo_buttons">
-    <!-- todo edit button-->
     <mat-icon class="icon-button" [ngClass]="{'hidden': isDeletedTodo()}" (click)="setDeleted()">delete</mat-icon>
   </div>
 </div>

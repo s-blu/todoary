@@ -1,17 +1,20 @@
 @import '../../../assets/styles/dialogs';
 @import '../../../assets/styles/variables';
 @import '../../../assets/styles/dialogs';
+@import '../../../assets/styles/draganddrop';
 
 .mat-dialog-content {
   width: 350px;
 }
 
-.category {
+.category, .category-create {
   display: grid;
   grid-template-columns: 1fr min-content;
   margin-top: 0.5em;
   padding: 5px;
+}
 
+.category {
   .name {
     grid-column: 1;
   }

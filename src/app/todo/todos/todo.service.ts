@@ -11,11 +11,11 @@ export class TodoService {
   }
 
   getOpenTodos() {
-    return this.databaseService.getOpenTodos();
+    return this.databaseService.getCategoriesWithTodos();
   }
 
   updateOpenTodos(todos) {
-    return this.databaseService.updateOpenTodos(todos);
+    return this.databaseService.updateCategoriesWithTodos(todos);
   }
 
   addOpenTodosToDefaultCategory(openTodos) {
@@ -24,7 +24,7 @@ export class TodoService {
       return;
     }
 
-    return this.databaseService.getOpenTodos()
+    return this.databaseService.getCategoriesWithTodos()
       .then(todoCategories => {
         const defaultCategory = todoCategories.find((cat) => cat.default);
         if (defaultCategory) {

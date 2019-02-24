@@ -20,13 +20,11 @@ import {CreateTodoComponent} from './todo/create-todo/create-todo.component';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {DeleteDiaryEntryDialogComponent} from './entry/delete-diary-entry-dialog/delete-diary-entry-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
-import {NewCategoryButtonComponent} from './categories/new-category-button/new-category-button.component';
-import {CreateCategoryDialogComponent} from './categories/create-category-dialog/create-category-dialog.component';
 import {CategoryHeaderComponent} from './categories/category-header/category-header.component';
 import {CategoryService} from './categories/category/category.service';
 import {ManageCategoriesDialogComponent} from './categories/manage-categories-dialog/manage-categories-dialog.component';
 import {ManageCategoriesButtonComponent} from './categories/manage-categories-button/manage-categories-button.component';
-import {CommonModule, registerLocaleData} from "@angular/common";
+import {CommonModule, registerLocaleData} from '@angular/common';
 import de from '@angular/common/locales/de';
 
 registerLocaleData(de);
@@ -43,8 +41,6 @@ registerLocaleData(de);
     TodoEntryReadmodeComponent,
     CreateTodoComponent,
     DeleteDiaryEntryDialogComponent,
-    NewCategoryButtonComponent,
-    CreateCategoryDialogComponent,
     CategoryHeaderComponent,
     ManageCategoriesDialogComponent,
     ManageCategoriesButtonComponent
@@ -59,7 +55,7 @@ registerLocaleData(de);
   providers: [{provide: LOCALE_ID, useValue: 'de'}, TodoService, TodoEntryService, DiaryEntryService, DatabaseService,
     Logger, MatSnackBar, MatDialog, CategoryService],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteDiaryEntryDialogComponent, CreateCategoryDialogComponent, ManageCategoriesDialogComponent]
+  entryComponents: [DeleteDiaryEntryDialogComponent, ManageCategoriesDialogComponent]
 })
 export class AppModule {
 }

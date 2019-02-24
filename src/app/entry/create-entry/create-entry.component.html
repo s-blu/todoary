@@ -5,16 +5,20 @@
       <mat-icon (click)="cancel()" class="cancel-button">clear</mat-icon>
     </div>
 
-    <div class="content">
+    <div class="content" cdkDropListGroup>
       <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
       <div class="todos" *ngFor="let category of todos">
         <ta-category-header [category]="category" *ngIf="!category.default"></ta-category-header>
         <div class="category-content" [ngClass]="{'collapsed': category.collapsed}">
-          <div class="entries">
-            <ta-todo-entry-editable [todo]="todo" *ngFor="let todo of category.todos"></ta-todo-entry-editable>
-          </div>
-          <div *ngIf="category.todos.length === 0" class="hint">
-            You have no open todos here. Everything is done - or deleted.
+          <div class="entries" cdkDropList [cdkDropListData]="category.todos"
+               (cdkDropListDropped)="drop($event, category)">
+            <div *ngIf="category.todos.length === 0" class="hint">
+              You have no open todos here. Everything is done - or deleted.
+            </div>
+            <div class="dragable" cdkDrag [cdkDragData]="todo" *ngFor="let todo of category.todos">
+              <ta-todo-entry-editable [todo]="todo"></ta-todo-entry-editable>
+              <span *cdkDragPreview class="drag-preview">{{todo.text}}</span>
+            </div>
           </div>
           <ta-create-todo (onSubmit)="addNewTodo($event)" [category]="category"></ta-create-todo>
         </div>

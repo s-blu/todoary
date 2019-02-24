@@ -6,8 +6,6 @@ import {DiaryComponent} from './tododiary/diary/diary.component';
 import {ManageCategoriesDialogComponent} from './categories/manage-categories-dialog/manage-categories-dialog.component';
 import {ExportButtonComponent} from './importexport/export-button/export-button.component';
 import {CategoryHeaderComponent} from './categories/category-header/category-header.component';
-import {NewCategoryButtonComponent} from './categories/new-category-button/new-category-button.component';
-import {CreateCategoryDialogComponent} from './categories/create-category-dialog/create-category-dialog.component';
 import {ManageCategoriesButtonComponent} from './categories/manage-categories-button/manage-categories-button.component';
 import {EntryHeadlineComponent} from './entry/entry-headline/entry-headline.component';
 import {DiaryEntryComponent} from './entry/diary-entry/diary-entry.component';
@@ -41,8 +39,6 @@ export class ModuleMetaData {
         TodoEntryReadmodeComponent,
         CreateTodoComponent,
         DeleteDiaryEntryDialogComponent,
-        NewCategoryButtonComponent,
-        CreateCategoryDialogComponent,
         CategoryHeaderComponent,
         ManageCategoriesDialogComponent,
         ManageCategoriesButtonComponent

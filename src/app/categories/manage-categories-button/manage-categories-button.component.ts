@@ -24,11 +24,13 @@ export class ManageCategoriesButtonComponent implements OnInit {
         return;
       }
 
-      const categoriesForDeletion = categories.filter((cat) => cat.markedAsDeleted);
+      this.categoryService.setCategories(categories).then(() => {
+        const categoriesForDeletion = categories.filter((cat) => cat.markedAsDeleted);
 
-      if (categoriesForDeletion.length > 0) {
-        this.categoryService.deleteCategoriesAndPreserveTodos(categoriesForDeletion);
-      }
+        if (categoriesForDeletion.length > 0) {
+          this.categoryService.deleteCategoriesAndPreserveTodos(categoriesForDeletion);
+        }
+      });
     });
   }
 

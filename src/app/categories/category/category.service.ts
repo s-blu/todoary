@@ -26,19 +26,32 @@ export class CategoryService {
       return;
     }
 
-    return this.databaseService.getOpenTodos().then((categories) => {
+    return this.databaseService.getCategoriesWithTodos().then((categories) => {
       const categoryToUpdate = categories.find((cat) => cat.name === category.name);
       if (!categoryToUpdate) {
         this.logger.error('changeCategoryCollapsedState: Could not find category to update. Abort. ' + category);
         return;
       }
       categoryToUpdate.collapsed = newState;
-      return this.databaseService.updateOpenTodos(categories);
+      return this.databaseService.updateCategoriesWithTodos(categories);
     });
   }
 
   getCategories() {
-    return this.databaseService.getOpenTodos();
+    return this.databaseService.getCategoriesWithTodos();
+  }
+
+  setCategories(newCategories) {
+    const isDefaultIncluded = newCategories.find(cat => cat.default);
+
+    if (!isDefaultIncluded) {
+      return this.databaseService.getCategoriesWithTodos().then((categoriesFromDb) => {
+        newCategories.unshift(categoriesFromDb.find(cat => cat.default));
+        return this.databaseService.updateCategoriesWithTodos(newCategories);
+      });
+    } else {
+      return this.databaseService.updateCategoriesWithTodos(newCategories);
+    }
   }
 
   deleteCategoriesAndPreserveTodos(categoriesToDelete) {
@@ -47,7 +60,7 @@ export class CategoryService {
       return;
     }
 
-    return this.databaseService.getOpenTodos().then((categoriesFromDb) => {
+    return this.databaseService.getCategoriesWithTodos().then((categoriesFromDb) => {
       const defaultCategory = categoriesFromDb.find((cat) => cat.default);
 
       categoriesToDelete.forEach((category) => {
@@ -63,7 +76,7 @@ export class CategoryService {
         categoriesFromDb.splice(categoriesFromDb.indexOf(categoryToDelete), 1);
       });
 
-      return this.databaseService.updateOpenTodos(categoriesFromDb);
+      return this.databaseService.updateCategoriesWithTodos(categoriesFromDb);
     });
   }
 }
