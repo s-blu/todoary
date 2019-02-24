@@ -1,0 +1,28 @@
+.deleted-todo {
+  text-decoration: line-through;
+  color: #9d9d9d;
+}
+
+.todo_entry {
+  display: grid;
+  grid-template-columns: 30px 3fr 1fr;
+
+  .indicator {
+    grid-column: 1;
+  }
+
+  .text {
+    grid-column: 2;
+    align-self: center;
+  }
+}
+
+.indicator {
+  .deleted {
+    color: #b30000;
+  }
+
+  .done {
+    color: #4e9739;
+  }
+}

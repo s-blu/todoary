@@ -1,0 +1,40 @@
+<div class="createEntry">
+  <form name="createEntryForm">
+    <div class="header">
+      Create a new Entry
+      <mat-icon (click)="cancel()" class="cancel-button">clear</mat-icon>
+    </div>
+
+    <div class="content" cdkDropListGroup>
+      <ta-entry-headline [title]='"ToDos"'></ta-entry-headline>
+      <div class="todos" *ngFor="let category of todos">
+        <ta-category-header [category]="category" *ngIf="!category.default"></ta-category-header>
+        <div class="category-content" [ngClass]="{'collapsed': category.collapsed}">
+          <div class="entries" cdkDropList [cdkDropListData]="category.todos"
+               (cdkDropListDropped)="drop($event, category)">
+            <div *ngIf="category.todos.length === 0" class="hint">
+              You have no open todos here. Everything is done - or deleted.
+            </div>
+            <div class="dragable" cdkDrag [cdkDragData]="todo" *ngFor="let todo of category.todos">
+              <ta-todo-entry-editable [todo]="todo"></ta-todo-entry-editable>
+              <span *cdkDragPreview class="drag-preview">{{todo.text}}</span>
+            </div>
+          </div>
+          <ta-create-todo (onSubmit)="addNewTodo($event)" [category]="category"></ta-create-todo>
+        </div>
+      </div>
+
+      <ta-entry-headline [title]='"Notes"'></ta-entry-headline>
+      <mat-form-field class="full-width notes">
+        <textarea matInput name="notes" [(ngModel)]="newEntry.notes" #notes matTextareaAutosize matAutosizeMinRows="2"
+                  matAutosizeMaxRows="7"></textarea>
+        <mat-hint align="end">{{notes.value.length}}</mat-hint>
+      </mat-form-field>
+    </div>
+    <button class="submit-button" color="primary" (click)="submit()" aria-label="Submit" mat-mini-fab>
+      <mat-icon>check</mat-icon>
+    </button>
+  </form>
+</div>
+
+

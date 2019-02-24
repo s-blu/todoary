@@ -1,9 +1,0 @@
-<div class="todo_entry">
-  <div class="indicator">
-    <mat-icon class="added" *ngIf="isOpenTodo()">add_box</mat-icon>
-    <mat-icon class="done" *ngIf="isDoneTodo()">check</mat-icon>
-    <mat-icon class="deleted" *ngIf="isDeletedTodo()">delete</mat-icon>
-  </div>
-  <span class="text" [ngClass]="{'deleted-todo' : isDeletedTodo()}">{{todo.text}}</span>
-  <span *ngIf="todo.category" class="category">{{todo.category}}</span>
-</div>

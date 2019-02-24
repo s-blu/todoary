@@ -1,0 +1,42 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/dialogs';
+
+.diary-header {
+  margin-bottom: 0.5em;
+  padding: 1em;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(150px, 1fr);
+  margin-right: 70px;
+
+  .toolbar-buttons {
+    grid-column: 2;
+    justify-self: end;
+    align-self: center;
+    color: $color_icons;
+
+    .icon-button {
+      margin-left: 1em;
+    }
+  }
+
+  .title {
+    grid-column: 1;
+    color: white;
+    font: 20pt $font_face_highlight;
+  }
+}
+
+.footer {
+  color: $color_icons;
+  font-size: 10pt;
+  a {
+    color: $color_icons;
+    text-decoration: none;
+    padding-right: 2em;
+  }
+}
+
+.gap {
+  margin-right: 2em;
+}

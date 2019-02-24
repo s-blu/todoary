@@ -1,7 +1,7 @@
 .content {
-    display: grid;
-    grid-template-columns: minmax(30px, 4%) minmax(min-content, 60%) minmax(30px, 1fr);
-    grid-template-rows: 1fr;
+  display: grid;
+  grid-template-columns: minmax(30px, 4%) minmax(min-content, 60%) minmax(30px, 1fr);
+  grid-template-rows: 1fr;
 
   ta-diary {
     grid-column: 2;

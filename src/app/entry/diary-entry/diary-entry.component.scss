@@ -1,0 +1,55 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/dialogs';
+
+.diary-entry-container {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+
+  &:hover {
+    .diary-entry-buttons {
+      animation: shiftIn 0.2s forwards 0.5s;
+    }
+  }
+}
+
+.diary-entry {
+  background-color: rgba(255, 255, 255, 0.9);
+
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: $border_radius;
+
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: 1fr 2em;
+
+  .timestamp {
+    grid-row: 2;
+    justify-self: end;
+    align-self: end;
+
+    color: $color_info;
+    font-family: $font_face_highlight;
+  }
+}
+
+.diary-entry .container {
+  grid-row: 1;
+}
+
+.diary-entry-content {
+  padding: 1em;
+}
+
+.diary-entry-buttons {
+  grid-column: 2;
+  padding-left: 1em;
+
+  color: $color_icons;
+
+  visibility: hidden;
+}
+
+.notes {
+  white-space: pre-line;
+}
