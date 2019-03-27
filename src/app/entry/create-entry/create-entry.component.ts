@@ -18,7 +18,6 @@ export class CreateEntryComponent implements OnInit {
   @Output() onCancel = new EventEmitter();
   newEntry = new Entry();
   todos = [];
-  showDismissedTodosHint = false;
 
   constructor(private todoService: TodoService, private logger: Logger, private snackBar: MatSnackBar) {
   }
@@ -30,11 +29,11 @@ export class CreateEntryComponent implements OnInit {
   }
 
   submit() {
-    this.updateOpenTodosAndRetrieveEntryTodos().then((todosForEntry) => {
+    this.updateOpenTodosAndRetrieveEntryTodos().then(({todosForEntry, showDismissedTodosHint}) => {
       this.newEntry.todos = todosForEntry;
-      if (this.showDismissedTodosHint) {
+      if (showDismissedTodosHint) {
         this.snackBar.open('Todos that are created and deleted in one step are dismissed.', null, {
-          duration: 2500
+          duration: 3500
         });
       }
       this.onSubmit.emit(this.newEntry);
@@ -75,12 +74,16 @@ export class CreateEntryComponent implements OnInit {
   async updateOpenTodosAndRetrieveEntryTodos() {
     const serverTodoCategories = await this.todoService.getOpenTodos();
     const todosForEntry = [];
+    let showDismissedTodosHint = false;
 
     this.todos.forEach((category, indexCat) => {
       const newTodosForCategory = [];
 
       category.todos.forEach((todo) => {
         _addTodoToEntryIfNecessary(todo, category, todosForEntry);
+        if (!showDismissedTodosHint) {
+          showDismissedTodosHint = _wasTodoDismissed(todo);
+        }
         _sanitizeTodo(todo);
         if (todo.status === todoStatus.OPEN) {
           newTodosForCategory.push(todo);
@@ -91,11 +94,15 @@ export class CreateEntryComponent implements OnInit {
     });
 
     await this.todoService.updateOpenTodos(serverTodoCategories);
-    return todosForEntry;
+    return {todosForEntry, showDismissedTodosHint};
 
     function _sanitizeTodo(todo) {
       delete todo.isMoved;
       delete todo.isNew;
+    }
+
+    function _wasTodoDismissed(todo) {
+      return todo.isNew && todo.status === todoStatus.DELETED;
     }
 
     function _addTodoToEntryIfNecessary(todo, category, entryTodos) {
@@ -103,7 +110,6 @@ export class CreateEntryComponent implements OnInit {
 
       // do not add newly created and instantly deleted todos to the entry or the openTodo list. Just discard them.
       if (todo.isNew && todo.status === todoStatus.DELETED) {
-        // this.showDismissedTodosHint = true; // FIXME replace with a event/message
         return false;
       }
       if (todo.status === todoStatus.OPEN && !(todo.isNew || todo.isMoved)) {

@@ -11,7 +11,7 @@
         <ta-category-header [category]="category" *ngIf="!category.default"></ta-category-header>
         <div class="category-content" [ngClass]="{'collapsed': category.collapsed}">
           <div class="entries" cdkDropList [cdkDropListData]="category.todos"
-               (cdkDropListDropped)="drop($event, category)">
+               (cdkDropListDropped)="drop($event)">
             <div *ngIf="category.todos.length === 0" class="hint">
               You have no open todos here. Everything is done - or deleted.
             </div>
