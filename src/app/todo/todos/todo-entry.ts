@@ -7,6 +7,7 @@ enum todoStatus {
 class TodoEntry {
   status;
   text;
+  category;
   isNew;
   isMoved;
 
