@@ -72,47 +72,50 @@ export class CreateEntryComponent implements OnInit {
     this.onCancel.emit(null);
   }
 
-  updateOpenTodosAndRetrieveEntryTodos() {
+  async updateOpenTodosAndRetrieveEntryTodos() {
+    const serverTodoCategories = await this.todoService.getOpenTodos();
     const todosForEntry = [];
 
-    return this.todoService.getOpenTodos().then((todoCategories) => {
-      this.todos.forEach((category, indexCat) => {
-        todoCategories[indexCat].todos = category.todos.filter((todo) => {
-          if (todo.isNew) {
-            const copiedTodo = Object.assign({}, todo);
-            delete todo.isMoved;
-            delete todo.isNew;
+    this.todos.forEach((category, indexCat) => {
+      const newTodosForCategory = [];
 
-            // do not add newly created and instantly deleted todos to the entry or the openTodo list. Just discard them.
-            if (todo.status === todoStatus.DELETED) {
-              this.showDismissedTodosHint = true;
-              return false;
-            }
-            if (!category.default) {
-              todo.category = category.name;
-            }
-            todosForEntry.push(copiedTodo);
-            // open and done todos needs to be added to the entry, but only open todos should be added to the category
-            return todo.status === todoStatus.OPEN;
-          }
-          if (todo.status === todoStatus.DONE || todo.status === todoStatus.DELETED) {
-            if (!category.default) {
-              todo.category = category.name;
-            }
-            todosForEntry.push(todo);
-            // dismiss from open todos
-            return false;
-          }
-          if (todo.isMoved) {
-            const copiedTodo = Object.assign({}, todo);
-            delete todo.isMoved;
-
-            todosForEntry.push(copiedTodo);
-          }
-          return true;
-        });
+      category.todos.forEach((todo) => {
+        _addTodoToEntryIfNecessary(todo, category, todosForEntry);
+        _sanitizeTodo(todo);
+        if (todo.status === todoStatus.OPEN) {
+          newTodosForCategory.push(todo);
+        }
       });
-      return this.todoService.updateOpenTodos(todoCategories).then(() => todosForEntry);
+      console.log(newTodosForCategory);
+      serverTodoCategories[indexCat].todos = newTodosForCategory;
     });
+
+    await this.todoService.updateOpenTodos(serverTodoCategories);
+    return todosForEntry;
+
+    function _sanitizeTodo(todo) {
+      delete todo.isMoved;
+      delete todo.isNew;
+    }
+
+    function _addTodoToEntryIfNecessary(todo, category, entryTodos) {
+      const copiedTodo = Object.assign({}, todo);
+
+      // do not add newly created and instantly deleted todos to the entry or the openTodo list. Just discard them.
+      if (todo.isNew && todo.status === todoStatus.DELETED) {
+        // this.showDismissedTodosHint = true; // FIXME replace with a event/message
+        return false;
+      }
+      if (todo.status === todoStatus.OPEN && !(todo.isNew || todo.isMoved)) {
+        return false;
+      }
+
+      if (!category.default) {
+        copiedTodo.category = category.name;
+      }
+      entryTodos.push(copiedTodo);
+
+      return true;
+    }
   }
 }
