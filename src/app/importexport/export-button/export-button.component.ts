@@ -17,9 +17,8 @@ export class ExportButtonComponent implements OnInit {
 
   /**
    * Code Base from https://gist.github.com/derekshi/2d4969c59627ab5aca65b37eaeab72fc
-   * @param element
    */
-  exportData(element) {
+  exportData() {
     this.dbService.getDataForExport().then((data) => {
       this.logger.debug('got export data successfully, writing file');
       const exportString = JSON.stringify(data);
