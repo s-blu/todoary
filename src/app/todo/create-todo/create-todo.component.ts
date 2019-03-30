@@ -16,10 +16,17 @@ export class CreateTodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.placeholdertext = 'new todo';
-    if (this.category && !this.category.default) {
-      this.placeholdertext += ` in ${this.category.name}`;
-    }
+    const placeholders = [
+      'I have to ...',
+      'I want to ...',
+      'Remember to ...',
+      'I need to ...',
+      'I should ...',
+      'Let\'s ...',
+      'Consider to ...'
+    ];
+
+    this.placeholdertext = placeholders[Math.floor(Math.random() * placeholders.length)];
   }
 
   submit() {
