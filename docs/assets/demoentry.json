@@ -1,0 +1,26 @@
+{
+  "demoEntry": {
+    "meta": {
+      "timestamp": 1513878325454
+    },
+    "todos": [
+      {
+        "status": -1,
+        "text": "You can delete old todos..."
+      },
+      {
+        "status": 0,
+        "text": "... create new ones to keep track of your open todos ..."
+      },
+      {
+        "status": 0,
+        "text": "... and you can check them when adding a new entry to the todoary."
+      },
+      {
+        "status": 1,
+        "text": "Great feeling, right?"
+      }
+    ],
+    "notes": "Welcome to the Todoary! You can keep track of your Todos here. Every time you create, check or delete a todo, the Todoary will keep track of that for you. To remind yourself why you did certain things you can add a handy little note to your Todo Update.\n\n Your entries are saved in your browser storage and sent nowhere. That also means that they are gone if you delete your browser storage. To save your entries, you can export them as .json.\n\nTo get started, click on the plus in the header. \n\nThats it! You can delete this entry by hovering over it and clicking the little trash bin on the right side. Have fun and happy todoing! :)"
+  }
+}
